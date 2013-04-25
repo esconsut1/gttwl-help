@@ -1,0 +1,25 @@
+Attachments (Files, Photos, Videos)
+============
+
+{{id}}
+{{permalink}}
+{{title}}
+{{url}}
+{{width}}
+{{height}}
+{{html}}
+{{author_name}}
+{{author_url}}
+{{provider_name}}
+{{provider_url}}
+{{created_at}}
+{{updated_at}}
+{{type}}
+{{25x25}}
+{{50x50}}
+{{100x100}}
+{{270x360}}
+{{640x480}}
+{{135x135}}
+{{original}}
+{{1024x768}}
