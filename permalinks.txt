@@ -1,0 +1,39 @@
+Link Structures
+---------------
+
+You can have custom permalinks for these kinds of posts:
+
+* Question
+* Video
+* Photo
+* Blog
+* Place
+* Product
+* Testimonial
+* Page
+* Offer
+* Database
+
+Permalink Variables
+-------------------
+
+:year
+:monthnum
+:day
+:minute
+:second
+:id
+:permalink (title converted to URL safe link, eg: "This is cool" = "this-is-cool")
+:postname (same as permalink)
+:category (permalink of category name)
+:username (username of person who created the post)
+:author (same as username)
+
+Examples:
+----------
+
+/blog/:category/:permalink => "/blog/business/10-things-to-do-in-new-york"
+
+/blog/:id => "/blog/123"
+
+/:year/:month/:day/:permalink => '/2013/04/28/10-to-things-to-do-in-new-york'
