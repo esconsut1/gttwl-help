@@ -1,0 +1,31 @@
+CREATING CUSTOM CONTACT FORMS
+-----------------------------
+
+Contact forms are used to send a message to employees of the agency.
+
+Form Parameters
+----------------
+action: "/contact" (or any other url you like). The page type must be "Mailer Form"
+
+Required Fields
+---------------
+* subject
+* message
+* email (sender)
+* name (sender)
+* to (email to send to -- this email must belong to an admin or employee in the site)
+
+Optional Fields
+---------------
+You can add any other fields you like.
+These fields will be added to a new Contact type request
+They will also be emailed to the "to" user.
+
+* bcc (an extra list of people to send to)
+* attachments[] - you can upload files that will be included. Remember to add 'enctype="multipart/form-data" to your forms.
+
+Autoresponder Trigger
+----------------------
+If you have any "contact" Autoresponders defined, these will be triggered and sent to the sender.
+
+
