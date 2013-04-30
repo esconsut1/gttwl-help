@@ -5,7 +5,9 @@ Contact forms are used to send a message to employees of the agency.
 
 Form Parameters
 ----------------
-action: "/contact" (or any other url you like). The page type must be "Mailer Form"
+default form action: "/contact" (or any other url you like). The page type must be "Mailer Form"
+method: POST (only post requests must be made)
+{{csrf}} - You must include this tag for your form to work
 
 Required Fields
 ---------------
@@ -21,7 +23,7 @@ You can add any other fields you like.
 These fields will be added to a new Contact type request
 They will also be emailed to the "to" user.
 
-* bcc (an extra list of people to send to)
+* bcc (an extra list of people to send to) eg: "user@email.com, user2@gmail.com, my@email.com,...". Up to 5 people max
 * attachments[] - you can upload files that will be included. Remember to add 'enctype="multipart/form-data" to your forms.
 
 Autoresponder Trigger
