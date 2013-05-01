@@ -40,3 +40,9 @@ Post Template Attributes
 {{full_link}}
 {{author}}
 {{place}}
+
+{{attachments}} - A list of attachments (videos, photos, files)
+
+{{primary_media}} - The primary media item for this post
+
+
