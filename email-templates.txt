@@ -9,6 +9,10 @@ The default layout name for emails is "email-layout".
 Just design your layout as you would any html layout and include the following Liquid variable to include the body of your email:
 {{content_for_layout}} 
 
+Generally Available Email Tags
+------------------------------
+{{site.name}} - All variables for the current site
+
 Email Templates
 ---------------
 Email templates have a fixed name. Here are the templates:
