@@ -1,0 +1,28 @@
+EMAIL TEMPLATES
+----------------
+
+Email templates and layouts mirror the system used for web templates in general. All emails should be in HTML.
+
+Layouts
+-------
+The default layout name for emails is "email-layout".
+Just design your layout as you would any html layout and include the following Liquid variable to include the body of your email:
+{{content_for_layout}} 
+
+Email Templates
+---------------
+Email templates have a fixed name. Here are the templates:
+
+* email-contact
+This email is delivered to an employee of the agency from a contact form.
+You can use tags as follows:
+{{title}}
+{{content}}
+{{...}}
+These tags are the same as in blogs.
+
+Additionally, any other custom fields from your form will be available in the collection:
+{{custom.fieldname}}
+
+
+*
