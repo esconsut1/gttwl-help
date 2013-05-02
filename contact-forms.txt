@@ -19,14 +19,19 @@ Required Fields
 
 Optional Fields
 ---------------
-You can add any other fields you like.
-These fields will be added to a new Contact type request
-They will also be emailed to the "to" user.
-
 * bcc (an extra list of people to send to) eg: "user@email.com, user2@gmail.com, my@email.com,...". Up to 5 people max
 * attachments[] - you can upload files that will be included. Remember to add 'enctype="multipart/form-data" to your forms.
 * return_url - a page that you can return to after the form is successfully posted
 * error_url - a page that you can redirect to if there was some sort of exception (error)
+
+Custom Fields
+--------------
+If you need custom fields in your form, you should package them in a hash like this:
+
+<input type="text" name="custom[my_custom_field_name]" value="{{params.custom.my_custom_field_name}}" />
+
+The total size of custom fields should not exceed
+
 
 Autoresponder Trigger
 ----------------------
