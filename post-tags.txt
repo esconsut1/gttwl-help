@@ -45,4 +45,6 @@ Post Template Attributes
 
 {{primary_media}} - The primary media item for this post
 
+{{custom_fields}} - A hash of custom fields
+{{custom_fields.cell_phone}}
 
