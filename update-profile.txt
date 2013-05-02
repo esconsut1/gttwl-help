@@ -1,5 +1,5 @@
-UPDATE USER PROFILES
----------------------
+UPDATE USER PROFILES & USER PHOTOS
+----------------------------------
 
 To Update a user profile, create a template with a form called "/account".
 Only the current user is allowed to update their profile.
@@ -37,3 +37,20 @@ Example form
 <input type="submit" value="Update Profile" />
 </form>
 
+
+UPDATING USER PHOTOS
+--------------------
+
+You need a separate form to update user templates. It should be named "/account/photo"
+
+Only one field is required
+attachments[]
+
+Example Form
+------------
+<form method="POST" action"/account/photo">
+  <label>Upload a new profile photo</label>
+  <input type="file" name="attachments[]" />
+  
+  <input type="submit" value="Upload photo" />
+</form>
