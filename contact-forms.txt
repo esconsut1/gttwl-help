@@ -15,7 +15,7 @@ Required Fields
 * message
 * email (sender)
 * name (sender)
-* to (email to send to -- this email must belong to an admin or employee in the site)
+* to (email to send to -- this email must belong to an admin or employee in the site - can be a hidden field)
 
 Optional Fields
 ---------------
@@ -31,5 +31,30 @@ They will also be emailed to the "to" user.
 Autoresponder Trigger
 ----------------------
 If you have any "contact" Autoresponders defined, these will be triggered and sent to the sender.
+
+Example contact form:
+
+<form method="POST" action="/contact">
+{{csrf}}
+<input type="hidden" name="to" value="esconsult1@gmail.com" />
+
+<label>My email</label>
+<input type="email" name="email" class="span4" value="{{params.email}}" />
+
+<label>My Name</label>
+<input type="text" name="name" class="span4" value="{{params.name}}" />
+
+<label>Subject</label>
+<input type="text" name="subject" class="span7" value="{{params.subject}} />
+
+<label>Message</label>
+<textarea name="message" rows="8" class="span7">{{params.message | escape}}</textarea>
+
+<p>
+  <input type="submit" value="Send Message" />
+</p>
+</form>
+
+
 
 
