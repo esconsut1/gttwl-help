@@ -1,4 +1,4 @@
-GTTWL Help Pages
+GTTWL Template Creating Help Pages
 ==========
 
-Help pages for GTTWL 2
+These contain the instructions for creating templates and forms in GTTWL2
