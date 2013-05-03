@@ -36,3 +36,17 @@ Once you have generated the collection, you can start to use its data like:
   {{blog.title}}
   ...
 {% endfor %}
+
+AVAILABLE COLLECTIONS
+======================
+
+* questions
+* videos
+* photos
+* blogs
+* places
+* products
+* testimonials
+* offers
+* records
+
