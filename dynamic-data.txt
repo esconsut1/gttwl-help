@@ -30,6 +30,15 @@ Get records created by the currently logged in user
 example:
 {% collection blogs, limit:10, order:created_at desc, user:current_user.username %}
 
+Use an alternate name for the generated collection
+example:
+{% collection blogs limit:10, name:recent_blogs %}
+
+then
+{% for blog in recent_blogs %}
+  {{blog.title}}
+{% end %}
+
 USING THE COLLECTION
 ====================
 
@@ -56,9 +65,11 @@ AVAILABLE COLLECTIONS
 AVAILABLE FILTERS
 =================
 
-* search:keyword - search through the collection for matching records
+* search:keyword - search through the collection for matching records for given keyword
 * category:permlaink - filters by the permalink of a category
-* user:username - filters by an author
-* order:sortfield asc|desc - Sorts by sort field, either ascending or descinging
+* user:username - filters collection by an author
+* order:sortfield asc|desc - Sorts by sort field, either ascending or descending
 * name:alternate_collection_name - An altername name to create the collection with if there would be a name clash
 * tag:tag1 tag2 tag3 - Filter by tags
+* limit:10 - Number of records to return in collection
+
