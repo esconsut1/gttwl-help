@@ -1,5 +1,17 @@
-Post Template Attributes
-========
+COLLECTION ATTRIBUTES
+=====================
+
+We support the following kinds of collections:
+* questions
+* videos
+* photos
+* blogs
+* places
+* products
+* testimonials
+
+TAG NAMES
+=========
 
 {{id}}
 {{zid}}
@@ -45,6 +57,6 @@ Post Template Attributes
 
 {{primary_media}} - The primary media item for this post
 
-{{custom_fields}} - A hash of custom fields
+{{custom_fields}} - A hash of custom fields in this collection
 {{custom_fields.cell_phone}}
 
