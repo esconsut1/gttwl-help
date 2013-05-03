@@ -1,0 +1,38 @@
+DYNAMIC DATA TAGS
+=================
+
+In some cases you want to get the 3 most recent blogs, or the most recent testimonials.
+
+You can do that with our new dynamic collection tag.
+
+SYNTAX
+=======
+{% collection [name of collection], filter:value, filter:value, filter:value,....%}
+
+EXAMPLES
+========
+
+Get the last 3 blog posts:
+{% collection blogs, limit:3, order:created_at desc %}
+
+Get a random testimonial:
+{% collection testimonials, limit:1, order:random %}
+
+Get products in the business category:
+{% collection products, limit:10, order:created_at desc, category:business %}
+
+Get products from a dynamic parameter passed into the URL
+example:
+http://mycoolsite.com/nice?category=fun
+{% collection products, limit:10, order:created_at desc, tag:params.tag %}
+
+USING THE COLLECTION
+====================
+
+Once you have generated the collection, you can start to use its data like:
+
+{% collection blogs, limit:10, order:created_at desc %}
+{% for blog in blogs %}
+  {{blog.title}}
+  ...
+{% endfor %}
