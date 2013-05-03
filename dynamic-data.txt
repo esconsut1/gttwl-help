@@ -26,6 +26,10 @@ example:
 http://mycoolsite.com/nice?category=fun
 {% collection products, limit:10, order:created_at desc, tag:params.tag %}
 
+Get records created by the currently logged in user
+example:
+{% collection blogs, limit:10, order:created_at desc, user:current_user.username %}
+
 USING THE COLLECTION
 ====================
 
@@ -58,5 +62,7 @@ AVAILABLE FILTERS
 * order:sortfield asc|desc - Sorts by sort field, either ascending or descinging
 * name:alternate_collection_name - An altername name to create the collection with if there would be a name clash
 * tag:tag1 tag2 tag3 - Filter by tags
+
+PULLING DATA FROM THE CURRENT_USER AND URL PARAMETERS
 
 
