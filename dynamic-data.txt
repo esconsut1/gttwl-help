@@ -48,7 +48,6 @@ AVAILABLE COLLECTIONS
 * products
 * testimonials
 * offers
-* records
 
 AVAILABLE FILTERS
 =================
