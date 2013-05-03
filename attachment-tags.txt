@@ -23,3 +23,24 @@ Attachments (Files, Photos, Videos)
 {{135x135}}
 {{original}}
 {{1024x768}}
+
+Resizing Images to Any Size
+----------------------------
+
+You can resize images to any size like this:
+
+<img src="/api/resize/{{id}}?size=640x480" />
+
+{{id}} is the id of the photo in question
+
+Want to view the image in your browser first?
+
+Just put the URL in your browser:
+http://sitename.com/api/resize/55?size=640x480&debug=1
+
+NOTES ON IMAGE RESIZING
+-----------------------
+
+This system resizes and caches the image, so it becomes available in other places.
+
+However the first resize operation can be slow (up to a second or two).
