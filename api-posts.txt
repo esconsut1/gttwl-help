@@ -1,0 +1,56 @@
+CREATING A NEW POST
+===================
+
+You can create a new post using the API without creating custom code.
+
+API Endpoints
+------------
+
+POSTS
+======
+
+Create a new post
+/api/post/create
+
+Destroy a post
+/api/post/destroy
+
+Update a post
+/api/post/update
+
+Get a list of posts
+/api/posts
+
+Get a single post
+/api/post
+
+COMMENTS
+========
+
+Create a comment
+/api/comment/create
+
+Delete a cmment
+/api/post/destroy
+
+USERS
+=====
+
+Create a user
+/api/user/create
+
+Update a user
+/api/user/update
+
+Get a user
+/api/user
+
+Get some users
+/api/users
+
+Unsubscribe from newsletters
+/api/user/unsubscribe
+
+
+Posting from a form
+-------------------
