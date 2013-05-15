@@ -51,6 +51,45 @@ Get some users
 Unsubscribe from newsletters
 /api/user/unsubscribe
 
+SEARCHNG
+========
 
-Posting from a form
--------------------
+Searches for public posts
+/api/search
+
+
+HTTP VERBS
+----------
+Unless otherwise indicated the following HTTP verbs must be used as follows:
+
+Creating records
+POST
+
+Updating records
+PATCH
+
+Deleting records
+DELETE
+
+Retrieving one or more records
+GET
+
+
+AUTHENTICATION
+==============
+
+Endpoints
+http://yoursite.com/api/...
+
+All requests to the REST api should contain the parameter
+"api" containing the key for your site
+
+By default all liquid forms on the site with the {{csrf}} template variable will automatically add this key.
+
+
+
+
+
+
+
+
