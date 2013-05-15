@@ -60,3 +60,16 @@ TAG NAMES
 {{custom_fields}} - A hash of custom fields in this collection
 {{custom_fields.cell_phone}}
 
+MARKING AS OPENED IN AN EMAIL
+=============================
+
+Most kinds of public posts (blogs, products, etc) should be marked as opened. 
+We have a special attribute to deal with this:
+{{open_link}}
+
+In an email:
+<img src="{{post.open_link}}" height="1" width="1" />
+
+The on-page analytics already takes care of this automatically on web pages.
+
+
