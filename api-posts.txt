@@ -123,7 +123,6 @@ Other fields to control processing
   cleanup (calls a javascript function to take some kind of action named in "cleanup") This is useful if you post from an iframe. Will call "my_cleanup_script(error_msg)" if there was an error, so you need to handle it.
 
 
-
 COMPLETE EXAMPLE (FOR LOGGED IN USER)
 ======================================
 
@@ -134,19 +133,35 @@ Page type: questions
 -----------
 <h1>Ask the Travel Agent</h1>
 
+<!-- error handling -->
+{% if error_message %}
+<div class="notice">{{error_message}}</div>
+{% endif %}
+
+<!-- the form -->
 <form method="POST" action="/api/post/create">
+  <!-- you always need this variable ->
   {{csrf}}
+  
+  <!-- the kind of post to create -->
   <input type="hidden" name="kind" value="question" />
+  
+  <!-- where to redirect to after the post has been created -->
   <input type="hidden" name="success_url" value="/questions" />
+  
+  <!-- template to show if we failed (this is not a redirect, it just redraws the screen) -->
   <input type="hidden" name="failure_template" value="/questions" />
 
+  <!-- you at least need the title field -->
   <label>Ask your question {{current_user.name}}</label>
   <input type="text" name="title" value="{{params.title}}" class="span8" />
+  
   <p>
     <input type="submit" class="btn btn-success" />
   </p>
 </form>
 
+<!-- a list of questions -->
 <ul>
 {% for question in questions %}
   <li>
