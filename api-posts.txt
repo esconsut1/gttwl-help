@@ -221,3 +221,29 @@ function cleanup_questions(msg) {
   </li>
 {% endfor %}
 </ul>
+
+UPDATING A POST COMPLETE EXAMPLE
+=================================
+
+<h1>{{question.title}}</h1>
+{{question.content | newline_to_br}}
+<hr />
+
+<form method="POST" action="/api/post/update">
+  {{csrf}}
+  <input type="hidden" name="_method" value="patch" />
+  
+  <input type="hidden" name="zid" value="{{question.zid}}" />
+  
+  <input type="hidden" name="success_url" value="{{question.permalink}}" />
+  <input type="hidden" name="failure_url" value="{{question.permalink}}" />
+
+  <label>Update this question</label>
+  <input type="text" name="title" class="span6" value="{{question.title}}" />
+
+  <label>More details</label>
+  <textarea name="content" rows="4" class="span6">{{question.content | escape}}</textarea>
+  <p>
+  <input type="submit" value="Update" />
+  </p>
+</form>
