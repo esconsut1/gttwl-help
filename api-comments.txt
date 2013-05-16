@@ -1,0 +1,42 @@
+CREATING A NEW COMMENT
+======================
+
+You can attach a comment to any kind of post with this API.
+
+API Endpoints
+
+Create a comment
+/api/comment/create
+
+Delete a comment
+/api/post/destroy
+
+AUTHENTICATION
+==============
+Only logged in users can create comments.
+You are also able to enable new users to both create a comment and signup simultaneously by adding an "email" and "name" field to the comment form.
+
+ALLOWED COMMENT FIELDS
+======================
+
+* zid (zid of the post you are attachign the comment to)
+  parent_id (parent_id of a comment you are replying to)
+* content
+  content_format (text, html)
+  user_zid or current_user or email and name (authentication)
+  attachments[]
+  
+If the user is already logged in you really need only two fields to add a comment:
+* zid
+* content
+
+Other fields to control processing
+-----------------------------------
+  success_url (url to go to after successfully creating the post)
+  failure_url (url to redirect to if post failed)
+  failure_template (template to render if fails)
+  success_template (template to render if success)
+  callback (calls a javascript function to take some kind of action named in "callback") This is useful if you post from an iframe. Will call "my_cleanup_script(error_msg)" if there was an error, so you need to handle it.
+
+
+
