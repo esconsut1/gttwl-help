@@ -78,15 +78,82 @@ GET
 AUTHENTICATION
 ==============
 
-Endpoints
-http://yoursite.com/api/...
-
 All requests to the REST api should contain the parameter
-"api" containing the key for your site
+"api_key" containing the key for your site
 
 By default all liquid forms on the site with the {{csrf}} template variable will automatically add this key.
 
 
+ALLOWED POST FIELDS
+===================
+
+Post fields
+-----------
+  * zid (user's private zid, or: name & email) or will use current_user
+  * title 
+  content
+  content_format (default text)
+  permalink
+  * kind (allowed kinds: question, blog, etc)
+  parent (zid of parent post)
+  summary
+  tags
+  category_id
+  external_link
+  meta1 - 6
+  agent_id
+  price
+  currency
+  lang
+  src
+  src_id
+  expires
+  price_info
+  status (default 1, will be nil if pubdate)
+  pubdate (parseable date string or nil)
+  data (hash of custom fields)
+  attachments[]
+
+Other fields to control processing
+-----------------------------------
+  success_url (url to go to after successfully creating the post)
+  failure_url (url to redirect to if post failed)
+  failure_template (template to render if fails)
+  success_template (template to render if success)
+  cleanup (calls a javascript function to take some kind of action named in "cleanup") This is useful if you post from an iframe. Will call "my_cleanup_script(error_msg)" if there was an error, so you need to handle it.
+
+
+
+COMPLETE EXAMPLE (FOR LOGGED IN USER)
+======================================
+
+This example simulates a simple Q/A site and uses the "question" type of post.
+
+Template path: "/questions" 
+Page type: questions
+-----------
+<h1>Ask the Travel Agent</h1>
+
+<form method="POST" action="/api/post/create">
+  {{csrf}}
+  <input type="hidden" name="kind" value="question" />
+  <input type="hidden" name="success_url" value="/questions" />
+  <input type="hidden" name="failure_template" value="/questions" />
+
+  <label>Ask your question {{current_user.name}}</label>
+  <input type="text" name="title" value="{{params.title}}" class="span8" />
+  <p>
+    <input type="submit" class="btn btn-success" />
+  </p>
+</form>
+
+<ul>
+{% for question in questions %}
+  <li>
+    <h4><a href="{{question.permalink}}">{{question.title}}</a></h4>
+  </li>
+{% endfor %}
+</ul>
 
 
 
