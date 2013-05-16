@@ -84,7 +84,8 @@ Other fields to control processing
   failure_url (url to redirect to if post failed)
   failure_template (template to render if fails)
   success_template (template to render if success)
-  callback (calls a javascript function to take some kind of action named in "callback") This is useful if you post from an iframe. Will call "my_cleanup_script(error_msg)" if there was an error, so you need to handle it.
+  callback (calls a javascript function to take some kind of action named in "callback") This is useful if you post from an iframe. Will call "my_cleanup_script(package)" with the result of the operation.
+    The results of the operation is a json variable with the new post formatted exactly as the Liquid template variables.
 
 Kinds of posts allowed
 -----------------------
