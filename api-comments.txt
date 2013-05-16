@@ -38,5 +38,37 @@ Other fields to control processing
   success_template (template to render if success)
   callback (calls a javascript function to take some kind of action named in "callback") This is useful if you post from an iframe. Will call "my_cleanup_script(error_msg)" if there was an error, so you need to handle it.
 
+COMPLETE EXAMPLE (FOR LOGGED IN USER)
+======================================
 
+<!-- displaying the question -->
+<h1>{{question.title}}</h1>
+{{question.content | newline_to_br}}
+<hr />
+
+<!-- and its replies -->
+<h4>Replies</h4>
+<ul>
+{% for r in question.responses %}
+<li>{{r.content}}</li>
+{% endfor %}
+</ul>
+
+<!-- then the comment form -->
+<form method="POST" action="/api/comment/create">
+  {{csrf}}
+  
+  <!-- the question zid -->
+  <input type="hidden" name="zid" value="{{question.zid}}" />
+  
+  <!-- where to go if there is an error or success -->
+  <input type="hidden" name="success_url" value="{{question.permalink}}" />
+  <input type="hidden" name="failure_url" value="{{question.permalink}}" />
+
+  <label>Add your reply</label>
+  <textarea name="content" rows="4" class="span6"></textarea>
+  <p>
+    <input type="submit" value="Reply" />
+  </p>
+</form>
 
