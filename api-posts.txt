@@ -170,7 +170,54 @@ Page type: questions
 </ul>
 
 
+COMPLETE "AJAX" (iframe really) EXAMPLE
+=======================================
 
+You'd want to do this if you are uploading images instead of using real ajax. It gives you the same effect.
 
+Template path: "/questions" 
+Page type: questions
+-----------
+<h1>Ask the Travel Agent</h1>
 
+<!-- notice we now add the target="myframe" that points to your iframe -->
+<form method="POST" action="/api/post/create" target="myframe">
+  {{csrf}}
+  <input type="hidden" name="kind" value="question" />
 
+  <!-- processor will call your javascript function afterwards -->
+  <input type="hidden" name="callback" value="cleanup_questions" />
+
+  <label>Ask your question {{current_user.name}}</label>
+  <input type="text" name="title" value="{{params.title}}" class="span8" />
+  <p>
+    <input type="submit" class="btn btn-success" />
+  </p>
+</form>
+
+<!-- iframe for psuedo-ajax style posting -->
+<iframe name="myframe" width="0" height="0" border="0" style="display: none;"></iframe>
+
+<!-- your callback script -->
+<script type="text/javascript">
+// This function can do things like refresh your question list, and clear the form
+function cleanup_questions(msg) {
+  if (msg) {
+    alert(msg);
+    return;
+  }
+  // we are good, so we can
+  //... clear form
+  //... refresh list
+ alert('Thank you!');
+}
+</script>
+
+<!-- list of questions -->
+<ul>
+{% for question in questions %}
+  <li>
+    <h4><a href="{{question.permalink}}">{{question.title}}</a></h4>
+  </li>
+{% endfor %}
+</ul>
