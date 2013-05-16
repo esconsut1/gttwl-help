@@ -6,9 +6,6 @@ You can create a new post using the API without creating custom code.
 API Endpoints
 ------------
 
-POSTS
-======
-
 Create a new post
 /api/post/create
 
@@ -23,39 +20,6 @@ Get a list of posts
 
 Get a single post
 /api/post
-
-COMMENTS
-========
-
-Create a comment
-/api/comment/create
-
-Delete a cmment
-/api/post/destroy
-
-USERS
-=====
-
-Create a user
-/api/user/create
-
-Update a user
-/api/user/update
-
-Get a user
-/api/user
-
-Get some users
-/api/users
-
-Unsubscribe from newsletters
-/api/user/unsubscribe
-
-SEARCHNG
-========
-
-Searches for public posts
-/api/search
 
 
 HTTP VERBS
@@ -89,12 +53,12 @@ ALLOWED POST FIELDS
 
 Post fields
 -----------
-  * zid (user's private zid, or: name & email) or will use current_user
-  * title 
+  zid (user's private zid, or: name & email) or will use current_user. If none of these, request will error out
+  * title (required)
   content
   content_format (default text)
   permalink
-  * kind (allowed kinds: question, blog, etc)
+  * kind (required -- see the list of allowed post kinds below)
   parent (zid of parent post)
   summary
   tags
@@ -121,6 +85,24 @@ Other fields to control processing
   failure_template (template to render if fails)
   success_template (template to render if success)
   callback (calls a javascript function to take some kind of action named in "callback") This is useful if you post from an iframe. Will call "my_cleanup_script(error_msg)" if there was an error, so you need to handle it.
+
+Kinds of posts allowed
+-----------------------
+  question
+  video
+  photo
+  blog
+  place
+  product
+  testimonial
+  page
+  offer
+  news_feed
+  database
+  lead
+  newsletter
+  social
+
 
 COMPLETE EXAMPLE (FOR LOGGED IN USER)
 ======================================
