@@ -77,6 +77,27 @@ Post fields
   pubdate (parseable date string or nil)
   data (hash of custom fields)
   attachments[]
+  
+Additional Fields for creating users
+------------------------------------
+These are useful for lead-generation forms.
+
+  name
+  email
+  phone
+  fax
+  gender (m, f, t)
+  organization
+  address
+  city
+  region
+  postal_code
+  user_tags
+  url
+  agent_id (other author.id who is referring this one)
+  location (eg: "Miami, Florida")
+  dob (date of birth, eg: "11/06/1964" or other standard date format)
+  user_meta (any string you like to help identify this user)
 
 Other fields to control processing
 -----------------------------------
