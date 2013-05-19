@@ -98,6 +98,7 @@ These are useful for lead-generation forms.
   location (eg: "Miami, Florida")
   dob (date of birth, eg: "11/06/1964" or other standard date format)
   user_meta (any string you like to help identify this user)
+  user_data (a set of custom fields for this user, eg: user_data[age], user_data[weight])
 
 Other fields to control processing
 -----------------------------------
