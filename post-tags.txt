@@ -60,6 +60,8 @@ TAG NAMES
 {{custom_fields}} - A hash of custom fields in this collection
 {{custom_fields.cell_phone}}
 
+{{parent}} - The parent post of this record
+
 MARKING AS OPENED IN AN EMAIL
 =============================
 
