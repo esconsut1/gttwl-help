@@ -72,4 +72,5 @@ AVAILABLE FILTERS
 * name:alternate_collection_name - An altername name to create the collection with if there would be a name clash
 * tag:tag1 tag2 tag3 - Filter by tags
 * limit:10 - Number of records to return in collection
+* status:[published, private, draft]
 
