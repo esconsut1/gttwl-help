@@ -1,0 +1,45 @@
+<h1>Contact Us</h1>
+<!-- contact form -->
+<form action="/api/post/create" method="POST" enctype="multipart/form-data">
+  {{csrf}}
+  <!-- page to go when successful -->
+  <input type="hidden" name="success_url" value="/thanks-page" />
+
+  <!-- it can redraw this template if failed and keep the values -->
+  <input type="hidden" name="failure_template" value="/contact" />
+
+  <!-- or redirect to another page if failed (but will lose values) -->
+  <!-- <input type="hidden" name="failure_url" value="/contact" /> -->
+
+  <!-- This is a "contact" type form. We always need this variable -->
+  <input type="hidden" name="kind" value="contact" />
+
+  <!-- Customer's name -->
+  <label>Name</label>
+  <input type="text" name="name" value="{{params.name}}" />
+
+  <!-- Email address (mandatory) -->
+  <label>Email address</label>
+  <input type="email" name="email" value="{{params.email}}" />
+
+  <!-- Subject (needs to be called "title") -->
+  <label>Subject</label>
+  <input type="text" name="title" value="{{params.title}}" />
+
+  <!-- Message part (optional) -->
+  <label>Your message</label>
+  <textarea name="content" rows="5">{{params.content | escape}}</textarea>
+
+  <!-- Attach files (optional) -->
+  <label>Attachments</label>
+  <input type="file" name="attachments[]" multiple="true" />
+
+  <input type="submit" value="Send Message" />
+
+  <!-- 
+  you can have other visible/hidden fields to help bolster the customer or this contact
+  See the documentation at:
+  https://github.com/esconsut1/gttwl-help/blob/master/api-posts.txt
+  -->
+
+</form>
