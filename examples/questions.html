@@ -1,0 +1,38 @@
+<!--
+This is an example of a simple Q/A page.
+We can ask questions here, and view the list of most recent questions
+-->
+<h1>Questions & Answers</h1>
+
+<!-- notice we now add the target="myframe" that points to your iframe -->
+<form method="POST" action="/api/post/create">
+  {{csrf}}
+  <input type="hidden" name="kind" value="question" />
+  <input type="hidden" name="success_url" value="/questions" />
+
+  {% if current_user.name %}
+  <!-- if the user is logged in we can personalize -->
+  <label>Ask your question {{current_user.name}}</label>
+  <input type="text" name="title" value="{{params.title}}" class="span8" />
+  {% else %}
+  <!-- if not logged in, we can both login the user and post the question at the same time -->
+  <label>Ask your question</label>
+  <input type="text" name="title" value="{{params.title}}" class="span8" />
+  <label>Your email</label>
+  <input type="email" name="email" />
+  <label>Your name</label>
+  <input type="text" name="name" /> 
+  {% endif %}
+  <p>
+    <input type="submit" class="btn btn-success" />
+  </p>
+</form>
+
+<h2>Questions</h2>
+<ul>
+{% for question in questions %}
+  <li>
+    <h4><a href="{{question.permalink}}">{{question.title}}</a></h4>
+  </li>
+{% endfor %}
+</ul>
