@@ -1,0 +1,17 @@
+<h1>My Blogs</h1>
+{% if blogs.size > 0 %}
+<ul>
+{% for blog in blogs %}
+  <h3><a href="/blog/{{blog.permalink}}">{{blog.title}}</a></h3>
+  {{blog.content}}
+  <p>
+    by <a href="{{blog.author.link}}">{{blog.author.name}}</a> 
+    on {{blog.created_at | date: '%m/%d/%Y'}}
+    in <a href="/blogs?category={{blog.category.permalink}}">{{blog.category.title}}</a>
+  </p>
+{% endfor %}
+</ul>
+{% else %}
+<p>Oops! No posts as yet</p>
+{% endif %}
+

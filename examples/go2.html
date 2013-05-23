@@ -1,0 +1,23 @@
+<!-- lead collection step 2 -->
+<div class="row">
+  <div class="span12">
+    <h1>How should we contact you?</h1>
+    <form method="POST" action="/lead">
+      {{csrf}}
+      <label>Your email</label>
+      <input type="email" name="email" class="span5" />
+      <label>Your phone number</label>
+      <input type="phone" name="phone" class="span3" />
+      <label>Your name</label>
+      <input type="text" name="name" class="span5" />
+      <p>
+        <input type="submit" value="Send" class="btn btn-success" />
+      </p>
+      
+      <input type="hidden" name="place" value="{{params.place}}" />
+      <input type="hidden" name="travel_date" value="{{params.travel_date}}" />
+      <input type="hidden" name="days" value="{{params.days}}" />
+      <input type="hidden" name="content" value="{{params.content}}" />
+    </form>
+  </div>
+</div>

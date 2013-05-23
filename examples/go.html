@@ -1,0 +1,55 @@
+<!-- lead collection -->
+<div class="row">
+  <div class="span8">
+    <h1>Where do you want to go?</h1>
+    <form method="POST" action="/go2">
+      <input type="hidden" name="product" value="{{params.product}}" />
+      <input type="hidden" name="place" value="{{params.place}}" />
+      <input type="hidden" name="username" value="{{params.username}}" />
+      {{csrf}}
+      <label>Where</label>
+      <input type="text" name="place" class="span5" />
+      <label>When?</label>
+      <input type="date" name="travel_date" placeholder="mm/dd/yyyy" />
+      <label>For how long?</label>
+      <select name="days">
+        <option value="3">A weekend</option>
+        <option value="7">One week</option>
+        <option value="14">Two Weeks</option>
+        <option value="30">A month</option>
+        <option value="999">Long Term</option>
+      </select>
+      <label>What do you want to do on your trip?</label>
+      <textarea name="content" rows="5" class="span5"></textarea>
+      <p>
+        <input type="submit" value="One more step &rarr;" class="btn btn-success" />
+      </p>
+    </form>
+  </div>
+
+  <div class="span4">
+    {% if place %}
+      <h4>Your Trip To {{place.title}}</h4>
+      {% if place.photo %}
+        <img src="{{place.photo.270x360}}" />
+      {% endif %}
+      <p>{{place.content}}</p>
+    {% endif %}
+
+    {% if user %}
+      <h4>{{user.name}}</h4>
+    {% endif %}
+
+    {% if product %}
+      <h4>{{product.title}}</h4>
+      {% if product.primary_media %}
+        <img src="{{product.primary_media.270x360}}" />
+      {% endif %}
+      {{product.content}} 
+      PRICE: {{product.price | money}}
+      <p>
+        {{product.created_at | time_ago }} ago
+      </p>
+    {% endif %}
+  </div>
+</div>

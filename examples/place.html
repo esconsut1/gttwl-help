@@ -1,0 +1,20 @@
+<!-- default place -->
+<h1>{{place.title}}</h1>
+
+<!-- primary photo or video -->
+{% if place.primary_media.type == 'photo' %}
+<p>
+  <img src="{{place.primary_media.640x480}}" />
+</p>
+{% elsif place.primary_media.type == 'video' %}
+<p>
+  {{place.primary_media.html}}
+</p>
+{% endif %}
+
+<!-- content -->
+{{place.content}}
+
+<!-- comments -->
+{% partial comments %}
+

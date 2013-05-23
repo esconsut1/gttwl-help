@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>{{site.name}}</title>
+    <style type="text/css">
+        .ReadMsgBody { width: 100%; background-color: #ebebeb;}
+        .ExternalClass {width: 100%; background-color: #ebebeb;}
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height:100%;}
+        body {-webkit-text-size-adjust:none; -ms-text-size-adjust:none;}
+        body {margin:0; padding:0;}
+        table {border-spacing:0;}
+        table td {border-collapse:collapse;}
+        .yshortcuts a {border-bottom: none !important;}
+
+        /* Constrain email width for small screens */
+        @media screen and (max-width: 600px) {
+            table[class="container"] {
+                width: 95% !important;
+            }
+        }
+
+        /* Give content more room on mobile */
+        @media screen and (max-width: 480px) {
+            td[class="container-padding"] {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+         }
+
+    </style>
+</head>
+<body style="margin:0; padding:10px 0;" bgcolor="#ebebeb" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<br>
+<!-- 100% wrapper (grey background) -->
+<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#ebebeb">
+  <tr>
+    <td align="center" valign="top" bgcolor="#ebebeb" style="background-color: #ebebeb;">
+
+      <!-- 600px container (white background) -->
+      <table border="0" style="max-width: 570px;" cellpadding="0" cellspacing="0" class="container" bgcolor="#ffffff">
+        <tr>
+          <td class="container-padding" bgcolor="#ffffff" style="background-color: #ffffff; padding-left: 30px; padding-right: 30px; line-height: 20px; font-family: Helvetica, sans-serif; color: #333;">
+            <br/>
+            {% if site.logo %}
+            <div style="margin-bottom: 2em; border-bottom: 1px solid #eee; padding-bottom: 1em;">
+              <img src="{{site.logo}}" style="max-width: 250px;" />
+            </div>
+            {% endif %}
+
+            <!-- content -->
+            <div style="font-weight: 200; font-size: 17px; color: #333; line-height: 1.4;">
+              {{content_for_layout}}
+            </div>
+            <!-- /content -->
+
+            <!-- footer -->
+            <div style="color: #999; border-top: 1px solid #eee; margin-top: 1em; padding-top: 1em; font-size: 13px;">
+              <p style="font-size: 13px; color: #999;">
+                You received this e-mail because you are a registered 
+                user of {{site.name}}. It is our policy not to share, 
+                sell, rent, swap or authorize any third party to use your 
+                e-mail address without your permission. 
+              </p>
+              <p style="font-size: 13px; color: #999;">
+                {% if reply_to %}
+                <a href="{{reply_to}}" style="color: blue;">Contact us</a> 
+                {% else %}
+                <a href="mailto:{{site.email}}" style="color: blue;">Contact us</a> 
+                {% endif %}
+                &nbsp;|&nbsp;
+                {% if unsub_link %}
+                <a href="{{unsub_link}}" style="color: blue;">Unsubscribe</a>
+                {% else %}
+                <a href="%unsub_link%" style="color: blue;">Unsubscribe</a>
+                {% endif %}
+              </p>
+              <p style="font-size: 13px; color: #999;">
+                &copy; {{site.name}} {{year}}, {{site.office}}
+              </p>
+            </div>
+            <!-- /footer -->
+
+          </td>
+        </tr>
+      </table>
+      <!--/600px container -->
+
+    </td>
+  </tr>
+</table>
+<!--/100% wrapper-->
+<br>
+<br>
+</body>
+</html>
+

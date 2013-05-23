@@ -1,0 +1,17 @@
+<!-- individual photo post -->
+<h1>{{photo.title}}</h1>
+
+<!-- the embed code for the photo -->
+<p>
+  <img src="{{photo.primary_media.640x480}}" alt="{{photo.primary_media.title}}" />
+</p>
+
+<!-- description -->
+{{photo.content}}
+
+<p>
+  by <a href="{{photo.author.link}}">{{photo.author.name}}</a>
+  on {{photo.created_at | date: '%m/%d/%Y'}}
+  in <a href="/photos?category={{photo.category.permalink}}">{{photo.category.title}}</a>
+</p>
+

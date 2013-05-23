@@ -1,0 +1,23 @@
+<!-- individual blog post -->
+<h1>{{blog.title}}</h1>
+
+<!-- primary photo or video -->
+{% if blog.primary_media.type == 'photo' %}
+<p>
+  <img src="{{blog.primary_media.640x480}}" />
+</p>
+{% elsif blog.primary_media.type == 'video' %}
+<p>
+  {{blog.primary_media.html}}
+</p>
+{% endif %}
+
+<!-- content -->
+{{blog.content}}
+
+<p>
+  by <a href="{{blog.author.link}}">{{blog.author.name}}</a>
+  on {{blog.created_at | date: '%m/%d/%Y'}}
+  in <a href="/blogs?category={{blog.category.permalink}}">{{blog.category.title}}</a>
+</p>
+

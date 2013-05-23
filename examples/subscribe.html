@@ -1,0 +1,14 @@
+<h1>Subscribe to our Newsletter</h1>
+
+<form method="POST" action="/subscribe">
+<label>Your email</label>
+<input type="email" name="email" value="{{current_user.email}}" />
+
+<label>Your name</label>
+<input type="text" name="name" value="{{current_user.name}}" />
+
+<p>
+  <input type="submit" class="btn btn-success" />
+</p>
+
+</form>

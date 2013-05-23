@@ -1,0 +1,30 @@
+<!-- individual question post -->
+<h1>{{question.title}}</h1>
+
+<!-- primary photo or video -->
+{% if question.primary_media.type == 'photo' %}
+<p>
+  <img src="{{question.primary_media.640x480}}" />
+</p>
+{% elsif question.primary_media.type == 'video' %}
+<p>
+  {{question.primary_media.html}}
+</p>
+{% endif %}
+
+<!-- content -->
+{{question.content}}
+
+<p>
+  by <a href="{{question.author.link}}">{{question.author.name}}</a>
+  on {{question.created_at | date: '%m/%d/%Y'}}
+  in <a href="/questions?category={{question.category.permalink}}">{{question.category.title}}</a>
+</p>
+
+<h2>Answers</h2>
+{% for r in question.responses %}
+<li>
+  {{r.content}}
+</li>
+{% endfor %}
+</ul>

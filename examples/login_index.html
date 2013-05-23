@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="span12">
+    <div class="centered">
+      <h2>Login</h2>
+      <form method="POST" action="/login">
+        {{csrf}}
+        <label>Email</label>
+        <input type="email" name="email" />
+        <label>Password</label>
+        <input type="password" name="password" />
+        <p>
+          <input type="submit" value="Login" class="btn btn-success" />
+        </p>
+        <input type="hidden" name="fh" id="fh" />
+        <script type="text/javascript" src="/signup/fh"></script> 
+      </form>
+    </div>
+  </div>
+</div>

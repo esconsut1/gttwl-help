@@ -1,0 +1,75 @@
+<h1>{{offer.title}}</h1>
+
+<div class="row">
+  <div class="span8">
+    {% if offer.primary_media.type == 'photo' %}
+      <p><img src="{{offer.primary_media.640x480}}" /></p>
+    {% elsif offer.primary_media.type == 'video' %}
+      <p>{{offer.primary_media.html}}</p>
+    {% endif %}
+
+    {{offer.content}}
+  </div>
+
+  <div class="span4">
+    <form method="POST" action="/api/post/create">
+      <!-- required in every lead form -->
+      {{csrf}}
+      <input type="hidden" name="success_url" value="{{offer.external_link}}" />
+      <input type="hidden" name="failure_url" value="{{offer.permalink}}" />
+      <input type="hidden" name="title" value="{{offer.title | escape}}" />
+      <input type="hidden" name="kind" value="lead" />
+      <input type="hidden" name="parent" value="{{offer.zid}}" />
+      <!-- /required -->
+
+      <!-- optional -->
+        <!-- tag new customers -->
+        <input type="hidden" name="user_tags" value="{{offer.tags}}" />
+      <!-- /optional -->
+
+      <!-- these are basic fields for simple form -->
+      <label>Your name</label>
+      <input type="text" name="name" />
+      <label>Email</label>
+      <input type="email" name="email" />
+
+      <!-- additional fields for medium form -->
+      {% if offer.meta4 == '2' %}
+        <label>Phone</label>
+        <input type="text" name="phone" />
+        <label>Organization</label>
+        <input type="text" name="organization" />
+        <label>Your site URL</label>
+        <input type="url" name="url" />
+      {% endif %}
+      
+      <!-- additional fields for "full" form -->
+      {% if offer.meta4 == '3' %}
+        <label>Phone</label>
+        <input type="text" name="phone" />
+        <label>Organization</label>
+        <input type="text" name="organization" />
+        <label>Your site URL</label>
+        <input type="url" name="url" />
+        <label>Gender</label>
+        <select name="gender">
+          <option value="f">Female</option>
+          <option value="m">Male</option>
+          <option value="t">Transgender</option>
+        </select>
+        <label>Address</label>
+        <input type="text" name="address" />
+        <label>City</label>
+        <input type="text" name="city" />
+        <label>State/Province</label>
+        <input type="text" name="region" />
+        <label>Zip/Postal Code</label>
+        <input type="text" name="postal_code" />
+      {% endif %}
+      
+      <label>
+        <input type="submit" value="Submit" class="btn btn-success" />
+      </label>
+    </form>
+  </div>
+</div>

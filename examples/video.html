@@ -1,0 +1,17 @@
+<!-- individual video post -->
+<h1>{{video.title}}</h1>
+
+<!-- the embed code for the video -->
+<p>
+  {{video.primary_media.html}}
+</p>
+
+<!-- description -->
+{{video.content}}
+
+<p>
+  by <a href="{{video.author.link}}">{{video.author.name}}</a>
+  on {{video.created_at | date: '%m/%d/%Y'}}
+  in <a href="/videos?category={{video.category.permalink}}">{{video.category.title}}</a>
+</p>
+

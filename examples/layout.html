@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{meta_title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{meta_description}}">
+    <meta name="author" content="{{agency.name}}">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+    {% if agency.css %}
+    <style>
+    {{agency.css}}
+    </style>
+    {% endif %}
+
+    {% if agency.google_analytics %}
+    {{ agency.google_analytics }}
+    {% else %}
+    <script src="/ga.js" type="text/javascripts"></script>
+    {% endif %}
+
+    {{google_analytics}}
+  </head>
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="/">{{agency.name}}</a>
+       <div class="nav-collapse collapse" id="main-menu">
+        <ul class="nav" id="main-menu-left">
+          {% for m in menu %}
+          <li {% if m.menu.size > 0 %} class="dropdown" {% endif %}>
+            {% if m.menu.size > 0 %}
+            <a href="{{m.url}}" class="dropdown-toggle" data-toggle="dropdown">{{m.title}}  <b class="caret"></b></a>
+            <ul class="dropdown-menu" id="swatch-menu">
+              {% for s in m.menu %}
+                <li><a href="{{s.url}}">{{s.title}}</a></li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <a href="{{m.url}}">{{m.title}}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+         </ul>
+         <ul class="nav pull-right">
+          {% if current_user %}
+          <li><a href="/logout">Logout</a></li>
+            {% if current_user.role_id >= 2  %}
+            <li><a href="/admin">Admin</a></li>
+            {% endif %}
+          {% else %}
+          <li><a href="/signup">Signup</a></li>
+          <li><a href="/login">Login</a></li>
+          {% endif %}
+         </ul>
+        </div>
+     </div>
+   </div>
+ </div>
+
+  <div class="container">
+    {% if flash.notice %}
+    <div class="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{flash.notice}}
+    </div>
+    {% endif %}
+    <!-- content -->
+    {{content_for_layout}}
+    <!-- content -->
+    <hr />
+    <footer id="footer">
+      <p class="pull-right"><a href="#top">Back to top</a></p>
+    </footer>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+  {{system_javascript}}
+  </body>
+</html>
