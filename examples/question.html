@@ -1,30 +1,28 @@
-<!-- individual question post -->
+<div>
+  <a href="/">home</a> &rarr;
+  <a href="/questions">questions</a>
+</div>
+
 <h1>{{question.title}}</h1>
-
-<!-- primary photo or video -->
-{% if question.primary_media.type == 'photo' %}
-<p>
-  <img src="{{question.primary_media.640x480}}" />
-</p>
-{% elsif question.primary_media.type == 'video' %}
-<p>
-  {{question.primary_media.html}}
-</p>
-{% endif %}
-
-<!-- content -->
-{{question.content}}
-
-<p>
-  by <a href="{{question.author.link}}">{{question.author.name}}</a>
-  on {{question.created_at | date: '%m/%d/%Y'}}
-  in <a href="/questions?category={{question.category.permalink}}">{{question.category.title}}</a>
-</p>
-
-<h2>Answers</h2>
+{{question.content | newline_to_br}}
+<hr />
+<h4>Replies</h4>
+<ul>
 {% for r in question.responses %}
-<li>
-  {{r.content}}
-</li>
+<li>{{r.content}}</li>
 {% endfor %}
 </ul>
+
+<form method="POST" action="/api/comment/create">
+  {{csrf}}
+  
+  <input type="hidden" name="zid" value="{{question.zid}}" />
+  <input type="hidden" name="success_url" value="{{question.permalink}}" />
+  <input type="hidden" name="failure_url" value="{{question.permalink}}" />
+
+  <label>Add your reply</label>
+  <textarea name="content" rows="4" class="span6"></textarea>
+  <p>
+    <input type="submit" value="Reply" />
+  </p>
+</form>
