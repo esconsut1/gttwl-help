@@ -73,6 +73,8 @@ Post fields
   src_id
   expires
   price_info
+  place_id
+  tags
   status (default 1, will be nil if pubdate)
   pubdate (parseable date string or nil)
   data (hash of custom fields)
