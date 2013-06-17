@@ -61,6 +61,7 @@ AVAILABLE COLLECTIONS
 * products
 * testimonials
 * offers
+* posts - all the above.
 
 AVAILABLE FILTERS
 =================
