@@ -7,13 +7,16 @@ You can do that with our new dynamic collection tag.
 
 SYNTAX
 =======
-{% collection [name of collection], filter:value, filter:value, filter:value,....%}
+{% collection [name of collection [ & name & name & ...]], filter:value, filter:value, filter:value,....%}
 
 EXAMPLES
 ========
 
 Get the last 3 blog posts:
 {% collection blogs, limit:3, order:created_at desc %}
+
+Get the last 3 posts from blogs and products:
+{% collection blogs&products, limit:3, order:created_at desc %}
 
 Get a random testimonial:
 {% collection testimonials, limit:1, order:random %}
