@@ -15,8 +15,10 @@ EXAMPLES
 Get the last 3 blog posts:
 {% collection blogs, limit:3, order:created_at desc %}
 
-Get the last 3 posts from blogs and products:
-{% collection blogs&products, limit:3, order:created_at desc %}
+***** NEW: Get the last 3 posts from blogs and products:
+{% collection blogs&products, limit:3, order:created_at desc, name:posts %}
+
+(NOTE: when selecting from multiple collections, you should always rename the output)
 
 Get a random testimonial:
 {% collection testimonials, limit:1, order:random %}
