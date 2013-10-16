@@ -10,6 +10,28 @@ We support the following kinds of collections:
 * products
 * testimonials
 
+FILTERING COLLECTIONS
+=====================
+
+Collections can be filtered by passing in certain parameters to their page.
+
+Example:
+/collection?filter=value
+
+Filters:
+tag: a tag to filter by
+category: a category permalink
+place: the name of a place. Will find the place and filter by this exact name
+near: the name of a place. Will find items in the collection close to this place
+place_id: the exact id of a place, eg: 451
+place_id: the exact permalink of a place. eg: paris_france
+search: a search query
+other fields:
+  meta1 - meta6
+  src
+  src_id
+  origin_id
+
 TAG NAMES
 =========
 
