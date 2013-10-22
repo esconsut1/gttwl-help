@@ -4,7 +4,9 @@ PROBLEM
 We need a way to send emails when users create different kinds of content through the api (only).
 
 PROPOSAL:
-Create a "after-create" template for email. If the template exists, then it gets sent. If it does not exist, then it does not get sent.
+Create a "after-create" template for email. 
+If the template exists, then it gets sent. 
+If it does not exist, then it does not get sent.
 
 TEMPLATE URL FORMAT:
 "email-[kind]-after_create"
