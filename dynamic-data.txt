@@ -81,5 +81,5 @@ AVAILABLE FILTERS
 * status:[published, private, draft]
 * near:place+name
 * place:exact+place+name
-
+* place:place_id eg: place:location.id or, place:product.place_id
 
