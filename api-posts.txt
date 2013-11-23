@@ -254,3 +254,10 @@ UPDATING A POST COMPLETE EXAMPLE
   <input type="submit" value="Update" />
   </p>
 </form>
+
+THANK YOU PAGE
+==============
+
+After creating a post with the API, the post is available for some time in the {{after_created}} variable.
+
+For instance, you can display elements of the post on your thank-you page.
