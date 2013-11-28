@@ -79,6 +79,7 @@ Post fields
   pubdate (parseable date string or nil)
   data (hash of custom fields)
   attachments[]
+  url - URL pointing to a file, photo or video to embed with this post
   
 Additional Fields for creating users
 ------------------------------------
