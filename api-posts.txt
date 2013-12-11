@@ -266,3 +266,16 @@ THANK YOU PAGE
 After creating a post with the API, the post is available for some time in the {{after_created}} variable.
 
 For instance, you can display elements of the post on your thank-you page.
+
+DELETING A POST
+===============
+
+Endpoint:
+/api/post/destroy/:zid
+
+The zid belongs to a post to be destroyed. Only the person who created the post can delete it.
+
+Example:
+/api/post/destroy/123-fjs-123-sdj-989-123?return_url=/my-questions
+
+The above would delete the post and redirect when completed to the value of "return_url".
