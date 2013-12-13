@@ -9,6 +9,19 @@ SYNTAX
 =======
 {% collection [name of collection [ & name & name & ...]], filter:value, filter:value, filter:value,....%}
 
+AVAILABLE COLLECTIONS
+=====================
+
+* itinerary
+* questions
+* videos
+* photos
+* blogs
+* places
+* products
+* testimonials
+
+
 EXAMPLES
 ========
 
@@ -82,4 +95,15 @@ AVAILABLE FILTERS
 * near:place+name
 * place:exact+place+name
 * place:place_id eg: place:location.id or, place:product.place_id
+
+NOTES ON ITINERARY COLLECTION
+=============================
+Only the order, limit and id options are available for itinerary. Any other options are silently ignored.
+
+* id (or zid) - return itineraries for an item
+* order - (rand, created_at, [blank]) the default for this option is blank. This will sort the lines in the order that the creator intended.
+* limit - up to 250, default 50
+
+
+
 
