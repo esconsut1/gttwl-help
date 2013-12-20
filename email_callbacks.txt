@@ -3,12 +3,15 @@ EMAIL CALLBACKS
 
 We can fire off emails when certain events occur.
 
-Of course you have to have the email templates created at first. These templates are liquid templates just like the rest of the pages on your site.
+Of course you have to have the email templates created at first. 
+These templates are liquid templates just like the rest of the pages on your site.
 
 NEW CONTENT CALLBACKS
 =====================
 
-When you use the "/api/post/create" handler to create a new post, you can setup several kinds of callbacks that will send an email to the user who created the post.
+When you use the "/api/post/create" handler to create a new post, 
+you can setup several kinds of callbacks that will send an email 
+to the user who created the post.
 
 email-:kind-after-create
 
@@ -16,9 +19,11 @@ Example:
 email-blog-after-create
 email-question-after-create
 
-This works with all the kinds of posts that we support creating. An example is if you need to send a confirmation email to the author of the post.
+This works with all the kinds of posts that we support creating. 
+An example is if you need to send a confirmation email to the author of the post.
 
-Besides the usual template tags available in the template for the post you created, we also make available 3 other special template tags:
+Besides the usual template tags available in the template for the post you created, 
+we also make available 3 other special template tags:
 
 * approve_url - a url to click to approve the post
 * disable_url - a url to click to set the post to draft
@@ -28,12 +33,16 @@ Besides the usual template tags available in the template for the post you creat
 NEW USER CALLBACKS
 ==================
 
-When a new user signs up with any method through the site, we will send any of these emails to the user:
+When a new user signs up with any method through the site, 
+we will send any of these emails to the user:
 
 email-after-signup:
-Can be used to send a confirmation or welcome email. You will have available the special liquid variable "confirm_url" which when clicked, will confirm the user account.
+Can be used to send a confirmation or welcome email. 
+You will have available the special liquid variable "confirm_url" which when clicked,
+will confirm the user account.
 
 email-after-signup-confirm:
-Triggered when the user confirms their email address. Great to show a welcome message.
+Triggered when the user confirms their email address. 
+Great to show a welcome message.
 
 
