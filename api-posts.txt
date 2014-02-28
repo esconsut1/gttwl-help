@@ -132,6 +132,7 @@ Kinds of posts allowed
   lead
   newsletter
   social
+  tip
 
 
 COMPLETE EXAMPLE (FOR LOGGED IN USER)
