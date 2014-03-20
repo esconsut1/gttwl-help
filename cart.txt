@@ -21,19 +21,30 @@ UPDATE QUANTITY IN CART
 This is the same as adding an item to the cart. You will enter the new quantity required.
 Adding a quantity of zero (0) will remove the item from the cart
 
-GET ITEMS IN CART
------------------
-You will need to create a page that shows items in the cart.
+VIEW CART
+---------
+You will need to create a page that shows items in the cart. (We have created a stub page you can use for functionality).
 
-Endpoint:
+Page URL:
 /cart
 
 Liquid variables available:
 
-* cart.items (list of posts in card. See "Post" documentation)
+* cart.items (list of items in cart. Includes "quantity" and "total" variables as well.)
 * cart.subtotal (total of prices in cart)
 * cart.taxes (total of taxes)
 * cart.tax_rate (current tax rate)
 * cart.total (grand total)
 
+ITEMS IN CART
+-------------
+You can show the number of items in the cart on any page with the following Liquid variable:
 
+* cart_quantity
+
+CHECKING OUT
+------------
+Once the cart is updated correctly, you can hit the checkout URL.
+This should be a secure URL, and is available in the following liquid variable
+
+* cart_checkout_url
