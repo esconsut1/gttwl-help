@@ -38,6 +38,7 @@ Page URL:
 
 Liquid variables available:
 
+* cart.id (id of this cart)
 * cart.items (list of items in cart. Includes "quantity" and "total" variables as well.)
 * cart.subtotal (total of prices in cart)
 * cart.taxes (total of taxes)
