@@ -44,6 +44,15 @@ Liquid variables available:
 * cart.tax_rate (current tax rate)
 * cart.total (grand total)
 
+HTML to add item to the cart from a product page:
+
+<form method="POST" action="/cart/update">
+  <input type="number" name="quantity" value="1" />
+  <input type="hidden" name="zid" value="{{product.zid}}" />
+  <button>Add to Cart</button>
+</form>
+
+
 ITEMS IN CART
 -------------
 You can show the number of items in the cart on any page with the following Liquid variable:
