@@ -3,6 +3,14 @@ CART
 
 The cart features implements shopping cart management and checkout. Carts can hold any kind of post which contains a price.
 
+The cart is simple and functions according to the following workflow:
+
+1. Add an item to the cart
+2. Add more items (if needed)
+3. View the cart
+4. Update items in the cart
+5. Checkout
+
 ADD TO CART
 -----------
 Add an item to the cart with this URL
@@ -47,4 +55,12 @@ CHECKING OUT
 Once the cart is updated correctly, you can hit the checkout URL.
 This should be a secure URL, and is available in the following liquid variable
 
+(Please note that sites should setup a secure cname to make this work)
+
 * cart_checkout_url
+
+You also need to create a checkout page with the following URL:
+(A stub page is already created that you can build on.)
+
+/cart/checkout
+
