@@ -51,6 +51,9 @@ HTML to add item to the cart from a product page:
   <input type="number" name="quantity" value="1" />
   <input type="hidden" name="zid" value="{{product.zid}}" />
   <button>Add to Cart</button>
+  
+  <!-- We can add a return URL. Default returns to /cart -->
+  <!-- <input type="text" name="return_url" value="/checkout" /> -->
 </form>
 
 
