@@ -1,0 +1,39 @@
+CART
+====
+
+The cart features implements shopping cart management and checkout. Carts can hold any kind of post which contains a price.
+
+ADD TO CART
+-----------
+Add an item to the cart with this URL
+
+Endpoint:
+/cart/update
+
+Parameters:
+* zid (required. ZID of product/post to add to cart)
+* quantity (optional, 0-9999)
+
+Adding a quantity of 0 will remove the item from the cart.
+
+UPDATE QUANTITY IN CART
+-----------------------
+This is the same as adding an item to the cart. You will enter the new quantity required.
+Adding a quantity of zero (0) will remove the item from the cart
+
+GET ITEMS IN CART
+-----------------
+You will need to create a page that shows items in the cart.
+
+Endpoint:
+/cart
+
+Liquid variables available:
+
+* cart.items (list of posts in card. See "Post" documentation)
+* cart.subtotal (total of prices in cart)
+* cart.taxes (total of taxes)
+* cart.tax_rate (current tax rate)
+* cart.total (grand total)
+
+
