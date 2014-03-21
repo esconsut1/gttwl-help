@@ -53,7 +53,7 @@ HTML to add item to the cart from a product page:
   <button>Add to Cart</button>
   
   <!-- We can add a return URL. Default returns to /cart -->
-  <!-- <input type="text" name="return_url" value="/checkout" /> -->
+  <!-- <input type="text" name="return_url" value="/cart/checkout" /> -->
 </form>
 
 
