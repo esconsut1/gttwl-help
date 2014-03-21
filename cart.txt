@@ -77,3 +77,15 @@ You also need to create a checkout page with the following URL:
 
 /cart/checkout
 
+
+THANK YOU PAGE
+--------------
+
+Once a checkout is successful, the purchaser is redirected to the thank-you page:
+
+/cart/thanks
+
+You will need to create this page with the above URL.
+(A stub page is already created that you can build on.)
+
+This page implements a receipt/invoice of the items purchased.
