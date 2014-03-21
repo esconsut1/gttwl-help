@@ -1,7 +1,7 @@
 CART
 ====
 
-The cart features implements shopping cart management and checkout. Carts can hold any kind of post which contains a price.
+The cart feature implements shopping cart management and checkout. Carts can hold any kind of post which contains a price.
 
 The cart is simple and functions according to the following workflow:
 
