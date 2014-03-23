@@ -86,6 +86,8 @@ Additional Fields for creating users
 These are useful for lead-generation forms.
 
   name
+  -or-
+  first_name, last_name
   email
   phone
   fax
