@@ -89,3 +89,14 @@ You will need to create this page with the above URL.
 (A stub page is already created that you can build on.)
 
 This page implements a receipt/invoice of the items purchased.
+
+
+RECEIPT/INVOICE EMAIL
+---------------------
+
+Once a checkout is successful, the purchaser (and agency) is sent an email notification.
+
+The name of the notification template is "email-invoice"
+
+(A stub template is already created that you can edit)
+
