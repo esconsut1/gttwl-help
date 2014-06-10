@@ -9,7 +9,7 @@ Create a comment
 /api/comment/create
 
 Delete a comment
-/api/post/destroy
+(not implemented as yet)
 
 AUTHENTICATION
 ==============
@@ -20,11 +20,11 @@ ALLOWED COMMENT FIELDS
 ======================
 
 * zid (zid of the post you are attachign the comment to)
-  parent_id (parent_id of a comment you are replying to)
+* parent_id (parent_id of a comment you are replying to)
 * content
-  content_format (text, html)
-  user_zid or current_user or email and name (authentication)
-  attachments[]
+* content_format (text, html)
+* email and name (authentication)
+* attachments[]
   
 If the user is already logged in you really need only two fields to add a comment:
 * zid
