@@ -1,0 +1,36 @@
+You can easily set and read cookies from the system to implement simple security scenarios:
+
+SETTING COOKIES
+
+Setup a form like so:
+<form method="POST" action="/api/set_cookies">
+  <!-- what you want your cookie to be named -->
+  <input type="hidden" name="cookie_name" value="user_name" />
+  
+  <!-- Where you want to go afterwards (Defaults back to this same page) -->
+  <input type="hidden" name="return_url" value="/some/page" />
+  
+  <!-- the value of yoru cookie -->
+  <label>What is your username?</label>
+  <input type="text" name="cookie_value" />
+  
+  <button>Submit</button>
+</form>
+
+READING COOKIES
+
+You can read cookies in your Liquid code like so:
+
+{{cookies.user_name}}
+
+Example:
+
+{% if cookies.user_name.length > 0 %}
+  Hello {{cookies.usern_name}}
+{% endif %}
+
+NOTES
+
+* Cookies are by default permanent
+* Cookies are set to the current domain you are at only
+* Do not use values larger than a few hundred bytes for your cookies.
