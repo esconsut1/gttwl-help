@@ -3,7 +3,7 @@ You can easily set and read cookies from the system to implement simple security
 SETTING COOKIES
 
 Setup a form like so:
-<form method="POST" action="/api/set_cookies">
+<form method="POST" action="/api/set_cookie">
   <!-- what you want your cookie to be named -->
   <input type="hidden" name="cookie_name" value="user_name" />
   
