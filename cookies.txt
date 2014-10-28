@@ -10,7 +10,7 @@ Setup a form like so:
   <!-- Where you want to go afterwards (Defaults back to this same page) -->
   <input type="hidden" name="return_url" value="/some/page" />
   
-  <!-- the value of your cookie -->
+  <!-- the value of your cookie, must always be name="cookie_value" -->
   <label>What is your username?</label>
   <input type="text" name="cookie_value" />
   
