@@ -10,7 +10,7 @@ Setup a form like so:
   <!-- Where you want to go afterwards (Defaults back to this same page) -->
   <input type="hidden" name="return_url" value="/some/page" />
   
-  <!-- the value of yoru cookie -->
+  <!-- the value of your cookie -->
   <label>What is your username?</label>
   <input type="text" name="cookie_value" />
   
@@ -26,11 +26,11 @@ You can read cookies in your Liquid code like so:
 Example:
 
 {% if cookies.user_name.length > 0 %}
-  Hello {{cookies.usern_name}}
+  Hello {{cookies.user_name}}
 {% endif %}
 
 NOTES
 
-* Cookies are by default permanent
+* Cookies are by default permanent  (expires 20 years)
 * Cookies are set to the current domain you are at only
 * Do not use values larger than a few hundred bytes for your cookies.
