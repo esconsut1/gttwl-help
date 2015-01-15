@@ -25,6 +25,7 @@ place: the name of a place. Will find the place and filter by this exact name
 near: the name of a place. Will find items in the collection close to this place
 place_id: the exact id of a place, eg: 451
 place_id: the exact permalink of a place. eg: paris_france
+country: a country code to search on. Eg: "US"
 search: a search query
 other fields:
   meta1 - meta6
