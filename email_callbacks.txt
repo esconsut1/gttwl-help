@@ -46,3 +46,21 @@ Triggered when the user confirms their email address.
 Great to show a welcome message.
 
 
+GENERIC CALLBACKS
+=================
+
+You can also send any kind of generic email when a new post is created using the /api/post/create endpoint.
+
+Step 1:
+Create a hidden field in your form called "notify"
+
+Step 2:
+Create an email template (in the page editor) and remember its url. Example "email-foo-bar"
+
+Step 3:
+In your form, the value of the "notify" field should be the same name of your email template. As in above example 2. "email-foo-bar"
+
+Implementation:
+<input type="hidden" name="notify" value="email-foo-bar">
+
+Your email template will contain all the liquid variables typically available in any kind of post (See that documentation).
