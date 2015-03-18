@@ -1,0 +1,20 @@
+LEAD MANAGEMENT
+===============
+
+When a new lead (or trip) is created, we perform a few actions
+
+Agent Notification
+------------------
+An agent (or the agency) is notified about the lead. 
+To override this email, create/edit a new email template 
+with the url: "email-travel-lead"
+
+Customer Welcome
+----------------
+We also send a thank-you email to the customer.
+To override thsi email, create/edit a new email template
+with the url: "email-new-trip"
+
+Additionally, we create new actions to occur in the customer's feed in the admin.
+
+
