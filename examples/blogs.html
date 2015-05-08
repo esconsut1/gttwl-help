@@ -1,4 +1,20 @@
 <h1>My Blogs</h1>
+
+<!-- search the blogs -->
+<form method="get" action="/blogs">
+  <input type="text" name="search" value="{{params.search}}" />
+  <button>Search</button>
+</form>
+
+<!-- display by tags -->
+<a href="/blogs?tag=beach">Beach blogs</a>
+<a href="/blogs?tag=business">Business travel blogs</a>
+
+<!-- display by category -->
+<a href="/blogs?category=adventure">Adventure travel</a>
+<a href="/blogs?category=food">Restaurants</a>
+
+<!-- display the list of blogs -->
 {% if blogs.size > 0 %}
 <ul>
 {% for blog in blogs %}
