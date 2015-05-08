@@ -18,7 +18,7 @@
 {% if blogs.size > 0 %}
 <ul>
 {% for blog in blogs %}
-  <h3><a href="/blog/{{blog.permalink}}">{{blog.title}}</a></h3>
+  <h3><a href="{{blog.permalink}}">{{blog.title}}</a></h3>
   <!-- primary photo or video -->
   {% if blog.primary_media.type == 'photo' %}
   <p>
