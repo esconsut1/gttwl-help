@@ -19,6 +19,16 @@
 <ul>
 {% for blog in blogs %}
   <h3><a href="/blog/{{blog.permalink}}">{{blog.title}}</a></h3>
+  <!-- primary photo or video -->
+  {% if blog.primary_media.type == 'photo' %}
+  <p>
+    <img src="{{blog.primary_media.640x480}}" />
+  </p>
+  {% elsif blog.primary_media.type == 'video' %}
+  <p>
+    {{blog.primary_media.html}}
+  </p>
+  {% endif %}  
   {{blog.content}}
   <p>
     by <a href="{{blog.author.link}}">{{blog.author.name}}</a> 
