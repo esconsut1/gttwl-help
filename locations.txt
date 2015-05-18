@@ -33,7 +33,6 @@ Location tag detail
 * feature_code
 * attachments - list of photos or videos
 * primary_media - the primary attachment
-* 
 
 Filtering
 ---------
@@ -51,4 +50,3 @@ All the above tags are available. However we have added a few more for convenien
 * blogs - a list of blogs that mention nearby places
 * products - a list of products that mention nearby places
 * related - a list of products and blogs combined from the 2 above
-
