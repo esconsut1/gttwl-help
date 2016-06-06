@@ -86,6 +86,8 @@ TAG NAMES
 
 {{parent}} - The parent post of this record
 
+{{places}} - A list of places (if multiple places) attached to this post
+
 MARKING AS OPENED IN AN EMAIL
 =============================
 
