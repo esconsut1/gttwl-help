@@ -33,6 +33,20 @@ other fields:
   src
   src_id
   origin_id
+  
+ADDITIONAL TRAVEL ORIENTED SEARCHES
+===================================
+You can additionally make searches based on the travel_date and travel_date_end fields of a collection.
+
+travel_month:
+given a date, will find travel dates starting anytime in that month. Example: "travel_date=July" or "travel_date=July+2017"
+
+travel_date: AND travel_date_end: 
+Finds posts with travel between these dates. Example: "travel_date=2016-01-01&travel_date_end=2016-05-01"
+
+nights:
+Finds posts the with travel dates between a range of nights. Example: "nights=5-10"
+
 
 TAG NAMES
 =========
