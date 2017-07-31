@@ -79,7 +79,6 @@ TAG NAMES
 {{unit_name}}
 {{currency}}
 {{lang}}
-{{kind}}
 {{src}}
 {{src_id}}
 {{expires}}
