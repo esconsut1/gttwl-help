@@ -9,6 +9,7 @@ We support the following kinds of collections:
 * places
 * products
 * testimonials
+* offers
 
 FILTERING COLLECTIONS
 =====================
@@ -78,6 +79,7 @@ TAG NAMES
 {{unit_name}}
 {{currency}}
 {{lang}}
+{{kind}}
 {{src}}
 {{src_id}}
 {{expires}}
