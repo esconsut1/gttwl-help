@@ -1,0 +1,19 @@
+There are a few different post kinds, you may reference them using the tag "kind"
+
+Example:
+
+/content?kind=8
+
+Post Kinds and their numbers:
+
+tips - 4
+questions - 8
+products - 9
+user post - 11
+videos - 14
+photos - 15
+blogs - 16
+places - 20
+testimonials - 21
+pages - 22
+offers - 200
