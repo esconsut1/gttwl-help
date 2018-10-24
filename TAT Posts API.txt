@@ -10,19 +10,15 @@ GET :=> /tatpostapi/v1/data
         Validates the apikey and returns posts based on the entered parameters. Posts are ordered by when they were created in
         our system with the newest first.
         
-    Parameters => apikey: This is the api key that you recieve from the support team. This is used to authenticate you.
+    Parameters => apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                   authenticate you.
     
-                  page: This is used for the pagination of posts, this is the next post id for the start of the next page of
-                        results, you will recieve this from your first successfull query.
+                  page(string): This is used for the pagination of posts, this is the next post id for the start of the next                                 page of results, you will recieve this from your first successfull query.
                         
-                  teamname: When this is specified, the API will return posts that match your query from this team, only if
-                            you are authorized to view them.
+                  teamname(string): When this is specified, the API will return posts that match your query from this team,                                       only if you are authorized to view them.
                             
-                  posttype: This is the type of post you wish to have returned by the API. See the end of document for a
-                            list of post types. If not specified the API will return all posts of all types
+                  posttype(string): This is the type of post you wish to have returned by the API. See the end of document                                       for a list of post types. If not specified the API will return all posts of all types
                            
-                  row: This is the amount of records you want returned per row. If not specified the API will return 100
-                       rows per query.
+                  row(string): This is the amount of records you want returned per row. If not specified the API will return                                100 records per query.
                        
     Query example =>https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&row=""
     
@@ -62,9 +58,9 @@ GET :=> /tatpostapi/v1/single
         Validates apikey and returns a single post based on the unique identifier specified. 
         The user will only see posts they are authorized to see.
         
-    Parameters => apikey: This is the api key that you recieve from the support team. This is used to authenticate you.
+    Parameters => apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                   authenticate you.
                   
-                  postkey: This is the unique identifier for a post.
+                  postkey(required, string): This is the unique identifier for a post.
                   
     Query example => https://api2.gttwl.net/tatpostapi/v1/data/single/?apikey=""&postkey=""
     Response example => {
