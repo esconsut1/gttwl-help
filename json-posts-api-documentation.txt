@@ -2,82 +2,107 @@ GETTING STARTED
 ===============
 To access the API, please send an email to support@travelagencytribes.com to request your key
 
-
 AUTHENTICATION
 ==============
-In order for the system to authenticate you as a user. You need to pass your apikey that you have recieved from support
-
+In order for the system to authenticate you as a user. You need to pass your apikey that you have recieved from support.
+Also if you are trying to return a single post, a postkey must be passed along with you apikey
 
 API Endpoints
--------------
+=============
 
+Returns posts based on the entered parameters
 /tatpostapi/v1/data
 
-Validates the apikey and returns posts based on the entered parameters. Posts are ordered by when they were created in
-our system with the newest first.
+Returns a single post based on the unique identifier specified.
+/tatpostapi/v1/single
+
         
-Parameters 
-apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                 authenticate you.
+Parameters
+==========
+apikey(required, string): This is the API key that you recieve from the support team. This is used to                       authenticate you.
     
-page(string): This is used for the pagination of posts, this is the next post id for the start of the next                                 page of results, you will recieve this from your first successfull query.
+page(string): This is used for the pagination of posts, this is the next post id for the start of the next                   page of results, you will recieve this from your first successfull query.
                         
-teamname(string): When this is specified, the API will return posts that match your query from this team,                                     only if you are authorized to view them.
-                            
-posttype(string): This is the type of post you wish to have returned by the API. See the end of document                                       for a list of post types. If not specified the API will return all posts of all types
+teamname(string): When this is specified, the API will return posts that match your query from this team,                   only if you are authorized to view them.
                            
-row(string): This is the amount of records you want returned per row. If not specified the API will return                                100 records per query.
-                       
-Request example :
-https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&row=""
+row(string): This is the amount of records you want returned per row. If not specified the API will return                   100 records per query.
 
-or
+postkey(required, string): This is the unique identifier for a post.
 
-https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&teamname=""&row=""
+posttype(string): This is the type of post you wish to have returned by the API. See the end of document                     for a list of post types. If not specified the API will return all posts of all types
+
+
+Post Types
+==========
+These are the post types that can be passed to the API.
+
+question,
+video,
+photo,
+blog,
+vendor,
+testimonial,
+offer,
+place,
+tip,
+user_post,
+lead
+
+Request Examples
+===================
+
+Geting all posts
+----------------                       
+https://api2.gttwl.net/tatpostapi/v1/data?apikey=dppa2lej4en2se&page=1&posttype=testimonials&row=50
+
+
+Getting all posts by team
+-------------------------
+https://api2.gttwl.net/tatpostapi/v1/data?apikey=dppa2lej4en2se&page=1&posttype=leads&teamname=My Travel Agency&row=70
+
+
+Getting a post by its key
+-------------------------
+https://api2.gttwl.net/tatpostapi/v1/data/single?apikey=""&postkey=sk4eo3l2neoir
+
+
+API Repsonse Examples
+=====================
                        
-Response example:
+All posts
+---------
+
 {
   "status": "",
   "message": " ",
   "data":{
-           "posts": [
-             {
-               "postkey": " ",
-               "title": " ",
-               "id": " ",
-               "created_at": " ",
-               "content": " ",
-               "author_email": " ",
-               "author": " ",
-               "attachments": " ",
-               "agency": " "
-             }
-             ],
-           "pagination": {
-                           {
-                           last_id_on_page: "",
-                           next_page_id: ""
-                           },
-                            "more": true/false <= if there are more pages
-                            "count": " "
-                         },
+  "posts": [
+   {
+    "postkey": " ",
+    "title": " ",
+    "id": " ",
+    "created_at": " ",
+    "content": " ",
+    "author_email": " ",
+    "author": " ",
+    "attachments": " ",
+    "agency": " ",
+    "posttype": "",
+    }
+    ],
+    "pagination": {
+    {
+    last_id_on_page: "",
+    next_page_id: ""
+    },
+    "more": " "
+    "count": " "
+    },
   "content_type": "json"
  }
   
- 
-/tatpostapi/v1/single
-
-Validates apikey and returns a single post based on the unique identifier specified. 
-The user will only see posts they are authorized to see.
-        
-Parameters:
-apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                 authenticate you.
-                  
-postkey(required, string): This is the unique identifier for a post.
-                  
-Query example:
-https://api2.gttwl.net/tatpostapi/v1/data/single/?apikey=""&postkey=""
-
-Response example: 
+Single Post
+-----------
 {
   "status": "",
   "message":" ",
@@ -90,24 +115,9 @@ Response example:
            "author_email": " ",
            "author": " ",
            "attachments": " ",
-           "agency": " "
+           "agency": " ",
+           "posttype": " ",
           },
   "content_type": "json"
   }
  
-APPENDIX
---------
-
-posttypes ={
-             question,
-             video,
-             photo,
-             blog,
-             vendor,
-             testimonial,
-             offer,
-             place,
-             tip,
-             user_post,
-             lead
-            }
