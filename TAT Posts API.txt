@@ -1,86 +1,92 @@
+GETTING STARTED
+===============
 To access the API, please send an email to support@travelagencytribes.com to request your key
 
-GETTING STARTED
 
+AUTHENTICATION
+==============
 In order for the system to authenticate you as a user. You would need to pass your apikey that you have recieved from support
 
-TAT Posts API Documentation
 
-GET :=> /tatpostapi/v1/data
-        Validates the apikey and returns posts based on the entered parameters. Posts are ordered by when they were created in
-        our system with the newest first.
+API Endpoints
+-------------
+
+GET /tatpostapi/v1/data
+Validates the apikey and returns posts based on the entered parameters. Posts are ordered by when they were created in
+our system with the newest first.
         
-    Parameters => apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                   authenticate you.
+Parameters: apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                   authenticate you.
     
-                  page(string): This is used for the pagination of posts, this is the next post id for the start of the next                                 page of results, you will recieve this from your first successfull query.
+            page(string): This is used for the pagination of posts, this is the next post id for the start of the next                                 page of results, you will recieve this from your first successfull query.
                         
-                  teamname(string): When this is specified, the API will return posts that match your query from this team,                                       only if you are authorized to view them.
+            teamname(string): When this is specified, the API will return posts that match your query from this team,                                       only if you are authorized to view them.
                             
-                  posttype(string): This is the type of post you wish to have returned by the API. See the end of document                                       for a list of post types. If not specified the API will return all posts of all types
+            posttype(string): This is the type of post you wish to have returned by the API. See the end of document                                       for a list of post types. If not specified the API will return all posts of all types
                            
-                  row(string): This is the amount of records you want returned per row. If not specified the API will return                                100 records per query.
+            row(string): This is the amount of records you want returned per row. If not specified the API will return                                100 records per query.
                        
-    Query example =>https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&row=""
-    
-                    or
-                    
-                    https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&teamname=""&row=""
+Request example =>https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&row=""
+                  or
+                  https://api2.gttwl.net/tatpostapi/v1/data?apikey=""&page=""&posttype=""&teamname=""&row=""
                        
-    Response example => {
-                          "status": "",
-                          "message": " ",
-                          "data":{
-                                   "posts": [
-                                            {
-                                              "postkey": " ",
-                                              "title": " ",
-                                              "id": " ",
-                                              "created_at": " ",
-                                              "content": " ",
-                                              "author_email": " ",
-                                              "author": " ",
-                                              "attachments": " ",
-                                              "agency": " "
-                                             }
-                                           ],
-                                   "pagination": {
-                                                  last_id_on_page: "",
-                                                  next_page_id: ""
-                                                 },
-                                   "more": true/false <= if there are more pages
-                                   "count": " "
-                                  },
-                          "content_type": "json"
-                          }
+Response example => {
+                      "status": "",
+                      "message": " ",
+                      "data":{
+                              "posts": [
+                                         {
+                                           "postkey": " ",
+                                           "title": " ",
+                                           "id": " ",
+                                           "created_at": " ",
+                                           "content": " ",
+                                           "author_email": " ",
+                                           "author": " ",
+                                           "attachments": " ",
+                                           "agency": " "
+                                            }
+                                       ],
+                              "pagination": {
+                                              last_id_on_page: "",
+                                              next_page_id: ""
+                                            },
+                              "more": true/false <= if there are more pages
+                              "count": " "
+                             },
+                      "content_type": "json"
+                      }
   
  
-GET :=> /tatpostapi/v1/single
-        Validates apikey and returns a single post based on the unique identifier specified. 
-        The user will only see posts they are authorized to see.
+GET /tatpostapi/v1/single
+Validates apikey and returns a single post based on the unique identifier specified. 
+The user will only see posts they are authorized to see.
         
-    Parameters => apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                   authenticate you.
+Parameters => apikey(required, string): This is the api key that you recieve from the support team. This is used to                                                   authenticate you.
                   
-                  postkey(required, string): This is the unique identifier for a post.
+              postkey(required, string): This is the unique identifier for a post.
                   
-    Query example => https://api2.gttwl.net/tatpostapi/v1/data/single/?apikey=""&postkey=""
-    Response example => {
-                          "status": "",
-                          "message":" ",
-                          "data":{
-                                   "postkey": " ",
-                                   "title": " ",
-                                   "id": " ",
-                                   "created_at": " ",
-                                   "content": " ",
-                                   "author_email": " ",
-                                   "author": " ",
-                                   "attachments": " ",
-                                   "agency": " "
-                                  },
-                          "content_type": "json"
-                          }
+Query example => https://api2.gttwl.net/tatpostapi/v1/data/single/?apikey=""&postkey=""
+
+Response example => {
+                      "status": "",
+                      "message":" ",
+                      "data":{
+                              "postkey": " ",
+                              "title": " ",
+                              "id": " ",
+                              "created_at": " ",
+                              "content": " ",
+                              "author_email": " ",
+                              "author": " ",
+                              "attachments": " ",
+                              "agency": " "
+                             },
+                      "content_type": "json"
+                    }
  
 APPENDIX
+--------
+
 posttypes ={
              question,
              video,
