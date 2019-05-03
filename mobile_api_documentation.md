@@ -31,7 +31,7 @@ Properties
 The following table defines the properties that appear in the response
 
 | Name | Description |
-| token| String, This is a randomly generated authentication token that needs to be passed in /v1/code in order to authenticate the authentication code that was sent to the user’s email. |
+| token | String, This is a randomly generated authentication token that needs to be passed in /v1/code in order to authenticate the authentication code that was sent to the user’s email. |
 | state | String, the state will be “ok” if the call was successful. If not the state will be “error” |
 
 Error messages
