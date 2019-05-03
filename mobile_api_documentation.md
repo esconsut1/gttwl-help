@@ -207,6 +207,7 @@ Failed authentication :
 }`
 
 General Error :
+
 `{
    content-type: "json",
    message: "Please try again",
@@ -796,6 +797,7 @@ The following table defines the properties that appear in the response
 
 
 Failed authentication : 
+
 `{
    content-type:"json",
    state:"error",
@@ -1021,6 +1023,7 @@ Parameters
 
 
 This route allows for updating the user's information and settings.
+
 `{
    content-type: "json",
    state:"ok",
