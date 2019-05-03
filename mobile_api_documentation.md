@@ -20,8 +20,13 @@ if the user exists in the system
 
 `{
   content-type: "json", 
+  
   message: "Please check your email for authentication code",  
+  
   token: "4mmwsosbem", 
+  
   state:"ok", 
+  
   status: 200 
+  
 }`
