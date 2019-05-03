@@ -116,7 +116,8 @@ Bad Request(missing parameters):
 
 
 # CONTENT ROUTES
-Get all Content(completed)
+ 
+# Get all Content(completed)
 Http Request
 GET https://api2.gttwl.net/tat_api/v1/contents
 
