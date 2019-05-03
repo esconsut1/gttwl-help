@@ -18,15 +18,30 @@ This method accepts a users email address as its only parameter. If the user is 
 
 if the user exists in the system
 
-`{
+```{
   content-type: "json", 
-  
   message: "Please check your email for authentication code",  
-  
   token: "4mmwsosbem", 
-  
   state:"ok", 
-  
   status: 200 
-  
-}`
+}```
+
+Properties
+
+The following table defines the properties that appear in the response
+
+| Name | Description |
+| token| String, This is a randomly generated authentication token that needs to be passed in /v1/code in order to authenticate the authentication code that was sent to the user’s email. |
+| state | String, the state will be “ok” if the call was successful. If not the state will be “error” |
+
+Error messages
+
+```
+{
+    content-type: "json",
+    state:"error",
+    message:"invalid request",
+    status:400
+}
+
+```
