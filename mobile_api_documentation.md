@@ -430,34 +430,7 @@ Parameters
 | apikey | String, required, This is the api key for the user, this must be used with all api calls |
 | title | String, required, The title of the content, if left blank api will not save the post. |
 | place | String, optional, name of a place or location Eg place=Paris |
-| category | String, optional, Category of post 
-[
- Before your trip
- Business
- Dining
- Escorted or Guided Tour
- Local Events
- Nightlife
- Outdoor Activities
- Rest & Relaxation
- River or Ocean Cruises
- Shopping
- Sightseeing
- Transportation
- Hotels
- Adventure
- Culture & History
- All Inclusive
- Sea & Sand
- Sports
- Wellness
- Spiritual
- Luxury
- Cultural Exchanges
- Awesome Travel Stuff
- Live
- Golf
-] |
+| category | String, optional, Category of post [ Before your trip, Business, Dining, Escorted or Guided Tour, Local Events, Nightlife, Outdoor Activities, Rest & Relaxation, River or Ocean Cruises, Shopping, Sightseeing, Transportation, Hotels, Adventure, Culture & History, All Inclusive, Sea & Sand, Sports, Wellness, Spiritual, Luxury, Cultural Exchanges,Awesome Travel Stuff, Live, Golf] |
 | facebook | Boolean, optional, Post to Facebook |
 | twitter | Boolean, optional, Post to Twitter |
 | to_newsletter | Boolean, optional, Add to newsletter |
