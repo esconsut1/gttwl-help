@@ -43,3 +43,14 @@ Error messages
     message:"invalid request",
     status:400
 }``
+
+# Email Validation
+POST https://api2.gttwl.net/tat_api/v1/code
+
+| Method | Route | Parameters | Result
+| ------ | ------ | ------ | ------ |
+POST | /tat_api/v1/code | code , token | Json Map showing list of agencies the user is apart of and the user api key for each |
+
+
+
+
