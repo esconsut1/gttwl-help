@@ -49,7 +49,7 @@ Error messages
 # Email Validation
 POST https://api2.gttwl.net/tat_api/v1/code
 
-| Method | Route | Parameters | Result
+| Method | Route | Parameters | Result |
 | ------ | ------ | ------ | ------ |
 POST | /tat_api/v1/code | code , token | Json Map showing list of agencies the user is apart of and the user api key for each |
 
@@ -122,7 +122,7 @@ Http Request
 GET https://api2.gttwl.net/tat_api/v1/contents
 
 
-| Method | Route | Parameters | Result
+| Method | Route | Parameters | Result |
 | ------ | ------ | ------ | ------ |
 | GET | /tat_api/v1/contents | apikey, page, rows, q, kind, supplier, type | List of content for that particular agency | 
 
@@ -221,7 +221,7 @@ Http Request
 GET https://api2.gttwl.net/tat_api/v1/content
 
 
-| Method | Route | Parameters | Result
+| Method | Route | Parameters | Result |
 | ------ | ------ | ------ | ------ |
 | GET | /tat_api/v1/content | apikey, zid | Json map returning all needed fields for that post|
 
@@ -328,7 +328,7 @@ Http Request(completed)
 POST https://api2.gttwl.net/tat_api/v1/content/unpublish
 
 
-| Method | Route | Parameters | Result
+| Method | Route | Parameters | Result |
 | ------ | ------ | ------ | ------ |
 | POST | /tat_api/v1/content/publish | apikey, zid, action | Content will be published or unpublished from the agency |
 
@@ -409,6 +409,120 @@ Returns error :
    message: "Please try again",
    status:404
 }`
+
+
+# Create Content
+
+Http Request
+POST https://api2.gttwl.net/tat_api/v1/content
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| POST | /tat_api/v1/content | apikey, title, place, category, facebook, twitter, to_newsletter, schedule, expiration_date, description, media | Content is created and returned back |
+
+
+Parameters
+
+
+| Name | Description |
+| ------ | ------ |
+| apikey | String, required, This is the api key for the user, this must be used with all api calls |
+| title | String, required, The title of the content, if left blank api will not save the post. |
+| place | String, optional, name of a place or location Eg place=Paris |
+| category | String, optional, Category of post 
+[
+ Before your trip
+ Business
+ Dining
+ Escorted or Guided Tour
+ Local Events
+ Nightlife
+ Outdoor Activities
+ Rest & Relaxation
+ River or Ocean Cruises
+ Shopping
+ Sightseeing
+ Transportation
+ Hotels
+ Adventure
+ Culture & History
+ All Inclusive
+ Sea & Sand
+ Sports
+ Wellness
+ Spiritual
+ Luxury
+ Cultural Exchanges
+ Awesome Travel Stuff
+ Live
+ Golf
+] |
+| facebook | Boolean, optional, Post to Facebook |
+| twitter | Boolean, optional, Post to Twitter |
+| to_newsletter | Boolean, optional, Add to newsletter |
+| expiration_date | Date, optional, Expiry date of a piece of content must be in format YYYY-MM-DD |
+| description  | String, optional, text body of content |
+| media | File, Images to add to the content. |
+| kind | String, required, the kind of the post [product, blog] if not specified default will be product |
+
+
+This route accepts all the fields needed for the supplier content creation. And returns the post after creation
+
+
+`{
+   content-type:"json",
+   data:{
+         zid: "",
+         title:"",
+         place:"",
+         kind:"",
+         views:"",
+         leads:"",
+         clicks:"",
+         source:"",
+         created_at:"",
+         permalink:"",
+         description:"",
+         primary_media:"",
+         activity:[
+                   {
+                     kind:"",
+                     username:"",
+                     kind:"",
+                     when:""
+                   }
+                  ]
+        },
+   state:"ok",
+   status: 200
+}`
+
+
+
+Failed Authentication Error: 
+
+`{
+   content-type:"json",
+   state:"error",
+   message: "Failed Authentication",
+   status: 401
+}`
+
+Returns error :
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:404
+}`
+
+
+
+
+
+
 
 
 
