@@ -592,7 +592,7 @@ Parameters
 | apikey | String, required, This is the api key for the user, this must be used with all api calls |
 
 
-{
+`{
    content-type:"json",
    user:{
           zid: "",
@@ -622,7 +622,431 @@ Parameters
             ],
    state:"ok",
    status: 200
-}
+}`
+
+Properties
+The following table defines the properties that appear in the response
+
+
+| Name | Description |
+| ------ | ------ |
+| zid | String, Unique Identifier for user |
+| name | String, Name of user |
+| place | String, Place associated with the user |
+| email | String, users email address |
+| phone | String, User phone number |
+| visit | Integer, The number of visits for this user |
+| leads | Integer, The number of leads for this user |
+| click-rate | Integer, The percentage email click rate for this user |
+| open-rate | Integer, The percentage email open rate for this user |
+| source | String, The user source |
+| created_at | Date, the date the user was created |
+| subscribed | Map, This map contains the user's subscription status, this contains a boolean field stating if the user is subscribed to newsletters or not, When they subscribed or unsubscribed and if their email is in the suppressed list |
+| activity | Map, This map contains a recent list of activities for the user, this includes the activity kind, the name associated with the activity and when this interaction took place, returns an empty list if no activity is found. |
+| picture | This is the url of the users profile picture, will be “” if no profile picture is found. |
+
+
+Failed authentication error :
+
+`
+{
+  content-type:"json",
+  state:"error",
+  message:"Failed Authentication",
+  status: 401
+}`
+
+General error : 
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:400
+}`
+
+User not found error:
+
+`{
+   content-type:"json",
+   state:"error",
+   message:"user not found",
+   status: 404
+}`
+
+# CREATE CUSTOMER
+
+Http Request 
+POST https://api2.gttwl.net/tat_api/v1/customer
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| POST | /tat_api/v1/customer | apikey, name, email, phone, newsletter, interests, place, start date, end date, notes
+| Creates customer |
+
+
+Parameters
+
+| Name | Description |
+| ------ | ------ |
+| apikey | String, required, This is the api key for the user, this must be used with all api calls |
+| email | String, required, The email address of the user. |
+| name | String, required, The name of an agent in the system |
+| phone | String, optional, The phone number of an agent in the system |
+| newsletter | Boolean, optional, True to allow user to receive newsletters False to not default will be set for true for each user if not set |
+| interests | String, optional, comma separated string listing interests/tags for a user |
+| place  | String, optional, name of a place or location Eg place=Paris |
+| startdate | Date, optional, start date for a piece of content or lead, accepts iso8601 date format “YYYY-MM-DD” |
+| enddate | Date, optional, end date for a piece of content or lead, accepts iso8601 date format “YYYY-MM-DD” |
+| notes | String, optional, text body of lead, this is required if the user wants to submit a lead along with addig the customer, if notes field is left blank start date and end date will be ignored and a lead will not be added. |
+
+
+
+
+This route accepts all the required fields to add a user to the system.
+
+`{
+   content-type: "json",
+   state:”ok”,
+   message: "User successfully added",
+   status:200
+}`
+
+
+
+Failed authentication error : 
+
+`{
+   content-type:"json",
+   state:”error”,
+   message: "Failed Authentication",
+   status: 401
+}`
+
+Returns error : 
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:400
+}`
+
+
+# VIEW ALL ACTIVITY
+
+Http Request
+https://api2.gttwl.net/tat_api/v1/activities
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| GET | /tat_api/v1/activities | apikey, kind, row, page | List of recent actions for this agency |
+
+Parameters
+
+| Name | Description |
+| ------ | ------ |
+| apikey | String, This is the api key for the user, this must be used with all api calls
+| page | Integer, optional, This indicates the page number of results you would like to see, the default is 1 Eg, to see the 2nd page of results you would add page=2 | 
+| rows | Integer, optional, This dictates the number of rows displayed per page the default is 20 if not set |
+| kind | String, optional, used to filter by activity type, Activity kinds are [“click”, “view”, “open”, “lead”] The default is all if not passed |
+
+
+
+Route works similarly to /content and /customers route. 
+
+`{
+   content-type: "json",
+   activities:[
+                {
+                  zid: "ty5h3w",
+                  title:"4 days in osaka",
+                  user: "John Baptist",
+                  created_at:"<date>",
+                  kind:"view"
+                }...
+              ],
+   "pageInfo": 
+           {
+             total_pages: "",
+             total_entries: "",
+             page_size: "",
+             page: "",
+             next_page: "",
+             more: true
+           },
+   state:"ok",
+   status: 200
+}`
+
+
+Properties
+The following table defines the properties that appear in the response
+
+
+| Name | Description |
+| ------ | ------ |
+| zid | String, unique Identifier for the activity |
+| title | String, The title of the activity |
+| user | String, The user’s name that associated with the activity |
+| created_at | Date, The time this interaction happened |
+| kind | String, The activity kind |
+
+
+Failed authentication : 
+`{
+   content-type:"json",
+   state:"error",
+   message: "Failed Authentication",
+   status: 401
+}`
+
+Returns error : 
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:404
+}`
+
+
+# VIEW ACTIVITY
+
+Http Request
+https://api2.gttwl.net/tat_api/v1/activity
+
+
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| GET | /tat_api/v1/activity | apikey, zid | Json map showing the details for that specific activity |
+
+
+Parameters
+
+| Name | Description |
+| ------ | ------ |
+| zid | String, required, This is a unique identifier for an item in a collection | 
+| apikey | String, required, This is the api key for the user, this must be used with all api calls |
+
+
+
+
+This route returns the data for an activity
+
+`{
+   content-type:"json",
+   activity:{
+              zid: "ryj35",
+              title:"4 Days in Osaka",
+              kind:"view"
+            }, 
+   user:{
+          zid:"rusmpe3",
+          name:"John baptist",
+          email:"jbaptist@example.com",
+          phone:"876-493-4420",
+          place:"Nurburg, Germany",
+          agent:"Andrew Hylton"},
+   post:{
+          zid: "7syrjw",
+          title:"4 Days in Osaka",
+          source:"gadventures",
+          place:"Osaka, Japan",
+          primary_image: "image-url.com"
+          leads:"23",
+          views:"53"
+        },
+   state:"ok",
+   status: 200
+}`
+
+Properties
+The following table defines the properties that appear in the response
+
+
+| Name | Description |
+| ------ | ------ |
+| activity[zid] | String, Unique Identifier for the activity |
+| activity[title] | String, The title for the activity |
+| activity[kind] | String, The activity kind |
+| user[] | This contains all the information for the user associated with this activity if no user is attached to the activity endpoint returns an empty list |
+| post[] | This contains all the information for the content associated with this activity
+pos is attached to the activity endpoint returns an empty list |
+
+
+
+No activity found: 
+`
+{
+   content-type:"json",
+   state:"error",
+   message: "Sorry, Activity not found",
+   status: 404
+}`
+
+Failed Authentication Error: 
+
+`{
+   content-type:"json",
+   state:"error",
+   message: "Failed Authentication",
+   status: 401
+}`
+
+Returns error : 
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:400
+}`
+
+
+
+# SETTINGS ROUTES
+
+Http Request
+https://api2.gttwl.net/tat_api/v1/settings
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| GET | /tat_api/v1/settings | apikey | Json map with with the current settings of the user |
+
+
+
+Parameters
+
+
+| Name | Description |
+| ------ | ------ |
+| apikey | String, required, This is the api key for the user, this must be used with all api calls |
+
+
+This route returns the current user information and the current settings for the user
+
+
+`{
+   content-type:"json",
+   user:{
+          zid:"iroshr",
+          name: "Stacy Jones",
+          email:"jbaptist@example.com",
+          phone:"876-435-4432",
+          title:"Travel Consultant",
+          bio:"I'll help you get where you want to go",
+          place:"Calgry, Canada",
+          photo_url: "amazons3.com/profile/picture"
+         },
+   settings:{
+              noleadnotif:"true",
+              hideprofile:"false"
+            },
+   state:"ok",
+   status:200
+}`
+
+
+Properties
+The following table defines the properties that appear in the response
+
+
+| Name | Description |
+| ------ | ------ |
+| user[zid] | String, The Unique identifier for the user |
+| user[name] | String, The name of the user |
+| user[email] | String, The users email address |
+| user[phone] | String, The user’s telephone number |
+| user[title] | String, The user’s title |
+| user[bio] | String, The user’s bio |
+| user[place] | String, The place associated with the user |
+| settings[noleadnotif] | Boolean, Set to true if user should receive lead notifications, false if not | 
+| settings[hideprofile] | Boolean, Set to true to not show the agents profile in the agents directory on the agency site. |
+
+
+
+Failed Authentication Error: 
+
+`{
+   content-type:"json",
+   state:”error”,
+   message: "Failed Authentication",
+   status: 401
+}`
+
+General error : 
+
+`{
+   content-type: "json",
+   state:”error”,
+   message: "Please try again",
+   status:404
+}`
+
+
+
+# UPDATE SETTINGS
+
+Http Request
+https://api2.gttwl.net/tat_api/v1/settings
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| POST | /tat_api/v1/settings | apikey, email, hideprofile, name, phone, title, bio, photo, leadnotif | Updates user settings and or info |
+
+
+Parameters
+
+
+
+| Name | Description |
+| ------ | ------ |
+| apikey | String, requred,This is the api key for the user, this must be used with all api calls |
+| email | String, required(user will have one in order to be logged in. cannot be changed to blank), The email address of the user. |
+| hideprofile | Boolean, optional,  Hides user profile from agency directory, default is set to false if not set. |
+| name | String, optional(assuming name a name is already set, cannot be set to blank), The name of an agent in the system |
+| phone | String, optional, The phone number of an agent in the system |
+| title | String, optional, The title of the user |
+| photo | File, the photo of the user, |
+| noleadnotif | Boolean, optional, This dictates if this user will receive lead notifications |
+
+
+
+
+This route allows for updating the user's information and settings.
+`{
+   content-type: "json",
+   state:"ok",
+   message: "Successfully updated user settings",
+   status:200
+}`
+
+Else
+
+Failed Authentication Error: 
+
+`{
+   content-type:"json",
+   state:"error",
+   message: "Failed Authentication",
+   status: 401
+}`
+
+Returns error : 
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:400
+}`
 
 
 
