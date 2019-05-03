@@ -491,10 +491,138 @@ Returns error :
    status:404
 }`
 
+# GET ALL CUSTOMERS
+
+Http Request
+GET https://api2.gttwl.net/tat_api/v1/customers
+
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| GET | /tat_api/v1/customers | apikey, q, page, rows | List of customers belonging to that agency |
 
 
 
 
+Parameters
+
+| Name | Description |
+| ------ | ------ |
+| apikey | String, This is the api key for the user, this must be used with all api calls
+| page | Integer, optional, This indicates the page number of results you would like to see, the default is 1 Eg, to see the 2nd page of results you would add page=2|
+| rows | Integer, optional, This dictates the number of rows displayed per page the default is 20 if not set | 
+| q | String, optional, This is used to do a search on a data collection |
+
+
+
+This route returns a json map with a list of all the content in for that agency.
+
+`{
+   content-type:"json",
+   data:
+        [
+          {
+           zid: "iem424",
+           name:"John Baptist",
+           place:"Nurburg, Germany",
+           created_at:""
+          }....
+        ],
+   "pageInfo": 
+           {
+             total_pages: "",
+             total_entries: "",
+             page_size: "",
+             page: "",
+             next_page: "",
+             more: true
+           },
+   state:"ok",
+   status: 200
+}`
+
+Properties
+The following table defines the properties that appear in the response
+
+| Name | Description |
+| ------ | ------ |
+| zid | String, Unique Identifier for a customer | 
+| name | String, Customer name |
+| place | String, Place associated with the customer |
+| created_at | Date, When the customer was created |
+
+
+Failed authentication: 
+`
+{
+   content-type:"json",
+   state:"error",
+   message: "Failed Authentication",
+   status: 401
+}`
+
+General error : 
+
+`{
+   content-type: "json",
+   state:"error",
+   message: "Please try again",
+   status:404
+}`
+
+
+
+# VIEW CUSTOMER
+
+Http Request
+GET https://api2.gttwl.net/tat_api/v1/customer
+
+
+| Method | Route | Parameters | Result |
+| ------ | ------ | ------ | ------ |
+| GET | /tat_api/v1/customer | apikey, zid | Json map returning customer information for this user |
+
+Parameters
+
+
+| Name | Description |
+| ------ | ------ |
+| zid | String, required, This is a unique identifier for an item in a collection | 
+| apikey | String, required, This is the api key for the user, this must be used with all api calls |
+
+
+{
+   content-type:"json",
+   user:{
+          zid: "",
+          name:"",
+          place:"Nurburg, Germany",
+          email:"jbaptist@example.com",
+          phone:"876-482-7749",
+          visit:"54",
+          leads:"4",
+          click_rate:"24",
+          open_rate:"23",
+          source:"",
+          created_at:"<date>",
+          picture:"",
+         },
+   subscribed:{
+                subscribed:"true"
+                when:"<date>",
+                email_suppressed:"<email not blocked"
+              },
+   activity:[
+             {
+               kind:"open",
+               name:"John Baptist",
+               when:"<date>"
+             }....
+            ],
+   state:"ok",
+   status: 200
+}
 
 
 
