@@ -18,13 +18,13 @@ This method accepts a users email address as its only parameter. If the user is 
 
 if the user exists in the system
 
-```{
+`{
   content-type: "json", 
   message: "Please check your email for authentication code",  
   token: "4mmwsosbem", 
   state:"ok", 
   status: 200 
-}```
+}`
 
 Properties
 
@@ -36,12 +36,9 @@ The following table defines the properties that appear in the response
 
 Error messages
 
-```
 {
     content-type: "json",
     state:"error",
     message:"invalid request",
     status:400
 }
-
-```
