@@ -53,12 +53,12 @@ Request Examples
 
 Geting all posts
 ----------------                       
-https://api2.gttwl.net/tatpostapi/v1/data?apikey=dppa2lej4en2se&page=1&posttype=testimonials&row=50
+https://api2.gttwl.net/tatpostapi/v1/data?apikey=dppa2lej4en2se&page=1&posttype=testimonial&row=50
 
 
 Getting all posts by team
 -------------------------
-https://api2.gttwl.net/tatpostapi/v1/data?apikey=dppa2lej4en2se&page=1&posttype=leads&teamname=My Travel Agency&row=70
+https://api2.gttwl.net/tatpostapi/v1/data?apikey=dppa2lej4en2se&page=1&posttype=lead&teamname=My Travel Agency&row=70
 
 
 Getting a post by its key
